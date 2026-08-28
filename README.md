@@ -2,7 +2,7 @@
 
 A static, searchable ZED DAYS campaign dashboard of the Government of Canada's tariff items for the countermeasures effective September 8, 2026.
 
-The interface uses the established ZED DAYS paper, ink and maple-red palette; vertical slashed-zero emblem; typewriter typography; and “Zero Engagement. Infinite Power.” tagline.
+The interface uses the established ZED DAYS paper, ink and maple-red palette; vertical slashed-zero emblem; typewriter typography; and “Zero Engagement. Unlimited Power.” tagline.
 
 ## Data
 

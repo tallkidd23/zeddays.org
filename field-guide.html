@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" data-language="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canadian-Made Field Guide | ZED DAYS</title>
+    <meta
+      name="description"
+      content="Search 300 source-verified products made in Canada across tariff-affected sectors."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="field-guide-page">
+    <a class="skip-link" href="#guideResults" data-i18n="skip">Skip to field-guide entries</a>
+    <div class="app-shell">
+      <header class="topbar field-guide-topbar">
+        <a class="brand brand-link" href="./index.html" aria-label="ZED DAYS tariff guide home">
+          <div class="zed-mark" aria-hidden="true">
+            <span>ZED</span>
+            <span class="zero">0<i></i></span>
+            <span>DAYS</span>
+          </div>
+          <div>
+            <span class="eyebrow" data-i18n="mastheadKicker">Canadian-made reference // edition 01</span>
+            <h1 data-i18n="mastheadTitle">The Canadian field guide</h1>
+            <p class="tagline">Zero Engagement. Unlimited Power.</p>
+          </div>
+        </a>
+        <div class="top-actions">
+          <div class="guide-language-toggle" role="group" aria-label="Language / Langue">
+            <button id="guideLanguageEnglish" type="button" aria-pressed="true">EN</button>
+            <button id="guideLanguageFrench" type="button" aria-pressed="false">FR</button>
+          </div>
+          <a class="icon-button text-button guide-home-link" href="./index.html" data-i18n="tariffsLink">Tariffs</a>
+          <button
+            id="guideThemeButton"
+            class="icon-button"
+            type="button"
+            aria-label="Switch colour theme"
+            data-testid="button-guide-theme"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="main field-guide-main">
+        <section class="field-guide-hero" aria-labelledby="fieldGuideTitle">
+          <div class="guide-spine" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="field-guide-hero-copy">
+            <span class="eyebrow" data-i18n="heroKicker">Carry it. Search it. Check the label.</span>
+            <h2 id="fieldGuideTitle" data-i18n="heroTitle">300 things still made here.</h2>
+            <p data-i18n="heroBody">
+              A source-checked directory of products manufactured, grown, processed, assembled or built in
+              Canada. Every listing connects a practical Canadian choice to a tariff-affected product sector.
+            </p>
+          </div>
+          <div class="guide-edition-stamp" aria-label="Edition information">
+            <span data-i18n="editionLabel">FIELD EDITION</span>
+            <strong>300</strong>
+            <span data-i18n="verifiedEntries">VERIFIED ENTRIES</span>
+            <small data-i18n="checkedDate">CHECKED 28.08.26</small>
+          </div>
+        </section>
+
+        <section class="guide-rule" aria-labelledby="guideRuleTitle">
+          <div>
+            <span class="eyebrow" data-i18n="ruleKicker">One hard rule</span>
+            <h2 id="guideRuleTitle" data-i18n="ruleTitle">Made here means made here.</h2>
+          </div>
+          <p data-i18n="ruleBody">
+            A Canadian address, owner or maple leaf is not enough. An entry appears only when an official
+            source confirms Canadian production for the named product or product line. Imported ingredients
+            and components are disclosed when the manufacturer says so.
+          </p>
+        </section>
+
+        <section class="guide-stats" aria-label="Field-guide summary">
+          <article>
+            <span data-i18n="entries">Entries</span>
+            <strong id="guideTotal">300</strong>
+          </article>
+          <article>
+            <span data-i18n="sectors">Sectors</span>
+            <strong id="guideSectorTotal">14</strong>
+          </article>
+          <article>
+            <span data-i18n="brands">Brands</span>
+            <strong id="guideBrandTotal">—</strong>
+          </article>
+          <article>
+            <span data-i18n="standard">Standard</span>
+            <strong data-i18n="madeHere">MADE HERE</strong>
+          </article>
+        </section>
+
+        <section class="guide-workspace">
+          <div class="guide-controls">
+            <div class="guide-control-heading">
+              <div>
+                <span class="eyebrow" data-i18n="searchKicker">Search the shelves</span>
+                <h2 data-i18n="searchTitle">Find a Canadian-made alternative</h2>
+              </div>
+              <button id="guideResetButton" class="quiet-button" type="button" data-testid="button-guide-reset">
+                <span data-i18n="reset">Reset</span>
+              </button>
+            </div>
+
+            <label class="search-field guide-search">
+              <span class="sr-only" data-i18n="searchLabel">Search by product, brand, use, location or HS heading</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" />
+              </svg>
+              <input
+                id="guideSearchInput"
+                type="search"
+                placeholder="Product, brand, use, location or HS heading"
+                data-i18n-placeholder="searchPlaceholder"
+                autocomplete="off"
+                data-testid="input-guide-search"
+              />
+              <kbd>/</kbd>
+            </label>
+
+            <div class="guide-filter-row">
+              <label class="select-field">
+                <span data-i18n="sector">Sector</span>
+                <select id="guideSectorSelect" data-testid="select-guide-sector">
+                  <option value="all">All sectors</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span data-i18n="confidence">Confidence</span>
+                <select id="guideConfidenceSelect" data-testid="select-guide-confidence">
+                  <option value="all">High + medium</option>
+                  <option value="High">High only</option>
+                  <option value="Medium">Medium only</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span data-i18n="sort">Sort</span>
+                <select id="guideSortSelect" data-testid="select-guide-sort">
+                  <option value="sector">Sector</option>
+                  <option value="brand">Brand A–Z</option>
+                  <option value="location">Location A–Z</option>
+                </select>
+              </label>
+              <div class="guide-actions">
+                <a
+                  class="export-button"
+                  href="./data/canadian-field-guide-bilingual.csv"
+                  download
+                  data-testid="link-download-field-guide"
+                ><span data-i18n="downloadCsv">Download CSV</span></a>
+                <button id="guidePrintButton" class="export-button" type="button" data-testid="button-print-guide">
+                  <span data-i18n="printGuide">Print field guide</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <nav id="guideSectorIndex" class="guide-sector-index" aria-label="Browse field-guide sectors"></nav>
+
+          <div class="guide-results-head">
+            <p id="guideResultCount" aria-live="polite" data-testid="text-guide-result-count">
+              Loading verified entries…
+            </p>
+            <span data-i18n="evidenceNote">Official-source evidence opens in a new tab.</span>
+          </div>
+
+          <section id="guideResults" class="guide-results" aria-label="Canadian-made product entries"></section>
+
+          <div id="guideEmptyState" class="empty-state guide-empty" hidden>
+            <h3 data-i18n="emptyTitle">No field-guide entries match</h3>
+            <p data-i18n="emptyBody">Try a broader product word or return to all sectors.</p>
+            <button id="guideEmptyResetButton" class="export-button" type="button"><span data-i18n="resetSearch">Reset search</span></button>
+          </div>
+
+          <div class="guide-load-row">
+            <button id="guideLoadMoreButton" class="guide-load-more" type="button" data-testid="button-guide-load-more">
+              <span data-i18n="loadMore">Load 30 more</span>
+            </button>
+          </div>
+        </section>
+
+        <aside class="guide-disclosure">
+          <strong data-i18n="fieldNoteLabel">Field note:</strong>
+          <span data-i18n="fieldNoteBody">Manufacturing and sourcing can change. “Made in Canada” may include imported ingredients or
+          components. Check the origin wording on the specific item before buying. These independent,
+          unpaid listings are informational and are not endorsements or certifications.</span>
+        </aside>
+
+        <section class="support-section" aria-labelledby="fieldSupportTitle">
+          <div>
+            <span class="eyebrow" data-i18n="supportKicker">Keep the resource independent</span>
+            <h2 id="fieldSupportTitle" data-i18n="supportTitle">Support ZED DAYS</h2>
+          </div>
+          <div class="support-copy">
+            <p data-i18n="supportBodyOne">
+              ZED DAYS is an independently run Canadian public resource, researched, designed and maintained
+              without paid listings or corporate influence.
+            </p>
+            <p data-i18n="supportBodyTwo">
+              Optional contributions help cover hosting, source verification, translation, regular updates,
+              and the development of free printable and physical field resources. When funding permits,
+              printed materials will be distributed to communities at no charge.
+            </p>
+            <p data-i18n="supportBodyThree">
+              Contributions never influence which products or companies appear in the guide. Digital
+              resources will remain free for everyone.
+            </p>
+            <small data-i18n="supportLegal">
+              ZED DAYS is not currently a registered charity. Contributions are not eligible for charitable
+              tax receipts.
+            </small>
+          </div>
+        </section>
+
+        <footer>
+          <span data-i18n="footerEdition">ZED DAYS // Canadian-made field guide // Edition 01</span>
+          <a href="./index.html" data-i18n="footerReturn">Return to the counter-tariff schedule</a>
+        </footer>
+      </main>
+    </div>
+
+    <script src="./field-guide.js" defer></script>
+  </body>
+</html>
