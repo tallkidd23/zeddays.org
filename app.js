@@ -77,6 +77,199 @@ const priorityGroups = [
   },
 ];
 
+const alternativesPilot = [
+  {
+    category: "Furniture & seating",
+    options: [
+      {
+        name: "Durham Furniture",
+        products: "Solid-wood bedroom and case goods",
+        status: "Made in Canada",
+        note: "The company says all of its furniture is made at its plant in Durham, Ontario.",
+        source: "https://www.durhamfurniture.com/about-us/",
+      },
+      {
+        name: "EQ3",
+        products: "Sofas, sectionals and chairs",
+        status: "Made in Canada: select upholstery",
+        note: "Upholstery is crafted at EQ3’s Winnipeg headquarters. Other products may be imported.",
+        source: "https://www.eq3.com/ca/en/category/inspiration/canadian-made",
+      },
+    ],
+  },
+  {
+    category: "Clothing & apparel",
+    options: [
+      {
+        name: "Province of Canada",
+        products: "T-shirts, hoodies, sweats, toques and totes",
+        status: "Made in Canada",
+        note: "The company states that all of its products are made in Canada.",
+        source: "https://provinceofcanada.com/pages/made-in-canada",
+      },
+      {
+        name: "Stanfield’s",
+        products: "Made in Canada clothing collection",
+        status: "Made in Canada: select collection",
+        note: "Choose from the company’s Canadian-made collection and verify the garment label.",
+        source: "https://www.stanfields.com/collections/made-in-canada",
+      },
+    ],
+  },
+  {
+    category: "Major appliances",
+    options: [
+      {
+        name: "Elmira Stove Works",
+        products: "Ranges, refrigerators and specialty appliances",
+        status: "Made in Canada",
+        note: "Elmira says its appliances are handcrafted near Elmira, Ontario.",
+        source: "https://elmirastoveworks.com/pages/about-us",
+      },
+      {
+        name: "Danby",
+        products: "Compact refrigeration and specialty appliances",
+        status: "Canadian-owned: verify origin",
+        note: "Danby is headquartered in Guelph, but its official page does not confirm Canadian manufacturing.",
+        source: "https://danby.ca/about-danby-appliances/",
+      },
+    ],
+  },
+  {
+    category: "Dairy products",
+    options: [
+      {
+        name: "Natrel / Agropur",
+        products: "Milk, cream, butter and lactose-free milk",
+        status: "100% Canadian milk",
+        note: "Agropur states that Natrel products use 100% Canadian milk.",
+        source: "https://www.agropur.com/en/news/all-news/agropur-renews-its-commitment-to-100-Canadian-milk",
+      },
+      {
+        name: "Gay Lea Foods",
+        products: "Butter, cream, cottage cheese and sour cream",
+        status: "Canadian farmer-owned",
+        note: "Gay Lea is a Canadian dairy farmer-owned co-operative. Verify the package origin.",
+        source: "https://www.gaylea.com/about-us/about-gay-lea/",
+      },
+    ],
+  },
+  {
+    category: "Paper & stationery",
+    options: [
+      {
+        name: "Cascades",
+        products: "Fluff tissue and Tuff paper towels",
+        status: "Made in Canada: select products",
+        note: "Cascades operates a retail tissue-products facility in Candiac, Quebec. Check the package.",
+        source: "https://www.cascades.com/en/facilities/cascades-candiac",
+      },
+      {
+        name: "Domtar",
+        products: "Copy and multipurpose office paper",
+        status: "Made in Canada: select paper",
+        note: "Domtar’s Windsor, Quebec mill produces copy and other uncoated papers.",
+        source: "https://www.domtar.com/our-location/windsor-mill/",
+      },
+    ],
+  },
+  {
+    category: "Beauty & fragrance",
+    options: [
+      {
+        name: "Consonant Skincare",
+        products: "Face and body skincare",
+        status: "Made in Canada: most products",
+        note: "Skincare and body care are made in Canada, except stated patches and accessories.",
+        source: "https://consonantskincare.com/pages/faqs",
+      },
+      {
+        name: "ATTITUDE",
+        products: "Personal-care and household products",
+        status: "Canadian factory: verify product",
+        note: "ATTITUDE operates its own production facility in Sherbrooke. Verify each product’s label.",
+        source: "https://ca.attitudeliving.com/our-factory",
+      },
+    ],
+  },
+  {
+    category: "Sports & outdoor gear",
+    options: [
+      {
+        name: "Nova Craft Canoe",
+        products: "Prospector and recreational canoes",
+        status: "Made in Canada",
+        note: "Nova Craft describes its canoe series as made in Canada near London, Ontario.",
+        source: "https://www.novacraft.com/our-company/",
+      },
+      {
+        name: "ClearWater Design",
+        products: "Canoes, kayaks and paddleboards",
+        status: "Made in Ontario",
+        note: "The company says all products are manufactured in Prince Edward County, Ontario.",
+        source: "https://clearwaterdesign.com/about/",
+      },
+    ],
+  },
+  {
+    category: "Electronics & machinery",
+    options: [
+      {
+        name: "Paradigm",
+        products: "Persona and selected loudspeaker series",
+        status: "Made in Canada: select series",
+        note: "The Persona Series is designed, engineered and built near Toronto.",
+        source: "https://www.paradigm.com/en/floorstanding/persona-7f",
+      },
+      {
+        name: "Totem Acoustic",
+        products: "Floorstanding and bookshelf loudspeakers",
+        status: "Made in Montreal",
+        note: "Totem describes its loudspeakers as handcrafted in Montreal, Quebec.",
+        source: "https://totemacoustic.com/totem-acoustic-our-story/",
+      },
+    ],
+  },
+  {
+    category: "Plastic kitchenware",
+    options: [
+      {
+        name: "Smartbottle",
+        products: "Reusable plastic water bottles",
+        status: "Made in Canada",
+        note: "Smartbottle states that its reusable bottles are made in Canada.",
+        source: "https://smartbottle.ca/",
+      },
+      {
+        name: "Starfrit / Heritage",
+        products: "Kitchen accessories and cookware",
+        status: "Canadian-owned: verify origin",
+        note: "The company is based in Quebec, but Canadian manufacturing is not confirmed.",
+        source: "https://www.starfrit.com/en/heritage",
+      },
+    ],
+  },
+  {
+    category: "Hand tools",
+    options: [
+      {
+        name: "Garant",
+        products: "Snow, garden, construction and striking tools",
+        status: "Made in Canada: select tools",
+        note: "Garant manufactures tools in Quebec and wooden handles in New Brunswick. Check the item.",
+        source: "https://www.garant.com/en/pages/about-us",
+      },
+      {
+        name: "Veritas Tools / Lee Valley",
+        products: "Planes, measuring, sharpening and joinery tools",
+        status: "Ottawa manufacturing: select tools",
+        note: "Veritas is Lee Valley’s Ottawa-based manufacturing arm. Verify individual listings.",
+        source: "https://www.leevalley.com/en-ca/tools/brand/veritas",
+      },
+    ],
+  },
+];
+
 const elements = {
   search: $("#searchInput"),
   sector: $("#sectorSelect"),
@@ -243,6 +436,38 @@ function renderPriorities() {
     .join("");
 }
 
+function renderAlternatives() {
+  $("#alternativesGrid").innerHTML = alternativesPilot
+    .map(
+      (group, index) => `
+        <article class="alternative-category">
+          <header>
+            <span class="alternative-number">${String(index + 1).padStart(2, "0")}</span>
+            <h3>${escapeHtml(group.category)}</h3>
+          </header>
+          <div class="alternative-options">
+            ${group.options
+              .map(
+                (option) => `
+                  <section class="alternative-option">
+                    <div class="alternative-title">
+                      <h4>${escapeHtml(option.name)}</h4>
+                      <span class="origin-status">${escapeHtml(option.status)}</span>
+                    </div>
+                    <p class="alternative-products">${escapeHtml(option.products)}</p>
+                    <p>${escapeHtml(option.note)}</p>
+                    <a href="${escapeHtml(option.source)}" target="_blank" rel="noreferrer">Verify company claim →</a>
+                  </section>
+                `,
+              )
+              .join("")}
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+}
+
 function showPriority(index) {
   const group = priorityGroups[index];
   resetFilters();
@@ -335,6 +560,7 @@ function setView(view) {
 }
 
 async function init() {
+  renderAlternatives();
   const response = await fetch("./data/tariffs.json");
   if (!response.ok) throw new Error("Tariff data failed to load");
   state.rows = await response.json();
