@@ -8,11 +8,148 @@ const state = {
   rates: new Set([15, 25, 50]),
   sort: "code-asc",
   fiftyOnly: false,
+  language: "en",
 };
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
-const fmt = new Intl.NumberFormat("en-CA");
+const formatNumber = (value) => new Intl.NumberFormat(state.language === "fr" ? "fr-CA" : "en-CA").format(value);
+
+const mainFrenchText = new Map([
+  ["Skip to results", "Passer aux résultats"],
+  ["Zero engagement // Canada", "Zéro engagement // Canada"],
+  ["Counter-tariff field guide", "Guide des contre-tarifs"],
+  ["Official list updated Aug. 26, 2026", "Liste officielle mise à jour le 26 août 2026"],
+  ["Method", "Méthode"],
+  ["A TARIFF RAISES THE PRICE.", "UN TARIF FAIT MONTER LE PRIX."],
+  ["WE CAN CHOOSE WHERE THE SALE GOES.", "NOUS POUVONS CHOISIR OÙ VA LA VENTE."],
+  ["ISSUE 09.08.26", "ÉDITION 08.09.26"],
+  ["FIELD", "GUIDE"],
+  ["GUIDE", "TERRAIN"],
+  ["SEARCHABLE // BILINGUAL // SOURCE-CHECKED", "RECHERCHABLE // BILINGUE // SOURCES VÉRIFIÉES"],
+  ["300 VERIFIED CANADIAN-MADE PRODUCTS", "300 PRODUITS FABRIQUÉS AU CANADA ET VÉRIFIÉS"],
+  ["Browse products and manufacturers across 14 sectors.", "Parcourez les produits et fabricants de 14 secteurs."],
+  ["OPEN THE GUIDE", "OUVRIR LE GUIDE"],
+  ["How personal avoidance adds pressure", "Comment nos choix créent une pression"],
+  ["A single choice may feel small. Together, our choices can change policy.", "Un seul choix peut sembler minime. Ensemble, nos choix peuvent changer la politique."],
+  ["When you choose a product made in Canada, or somewhere other than the U.S., one fewer American product is sold. One choice is small. When many Canadians make the same choice, fewer orders reach U.S. businesses. That gives those businesses a reason to push for a change in U.S. trade policy.", "Lorsque vous choisissez un produit fabriqué au Canada, ou ailleurs qu’aux États-Unis, un produit américain de moins est vendu. Un choix est modeste. Lorsque beaucoup de Canadiens font le même choix, moins de commandes parviennent aux entreprises américaines. Cela leur donne une raison de réclamer un changement de politique commerciale."],
+  ["Start with one everyday choice.", "Commencez par un choix quotidien."],
+  ["Choose something Canadian, look for another country of origin, buy used, repair, or simply wait.", "Choisissez canadien, cherchez une autre origine, achetez d’occasion, réparez ou attendez simplement."],
+  ["That choice changes what gets sold.", "Ce choix change ce qui se vend."],
+  ["When the same products keep getting passed over, retailers and importers may begin ordering less of them.", "Lorsque les mêmes produits sont régulièrement délaissés, les détaillants et importateurs peuvent commencer à en commander moins."],
+  ["Small choices begin to add up.", "Les petits choix commencent à s’additionner."],
+  ["Across many households, fewer purchases can become a noticeable shift in orders, inventory and sales.", "Dans de nombreux ménages, la baisse des achats peut devenir un changement visible dans les commandes, les stocks et les ventes."],
+  ["Businesses start paying attention.", "Les entreprises commencent à réagir."],
+  ["As Canadian demand shifts, affected U.S. suppliers have a reason to speak up and push for change.", "Lorsque la demande canadienne se déplace, les fournisseurs américains touchés ont une raison de se faire entendre et de réclamer un changement."],
+  ["Illustrative example", "Exemple illustratif"],
+  ["One C$6 U.S.-origin milk product each week", "Un produit laitier américain de 6 $ CA par semaine"],
+  ["1 household", "1 ménage"],
+  ["10,000 households", "10 000 ménages"],
+  ["100,000 households", "100 000 ménages"],
+  ["1 million households", "1 million de ménages"],
+  ["redirected per year", "réaffectés par année"],
+  ["potential annual demand shift", "déplacement annuel potentiel de la demande"],
+  ["Official tariff lines", "Lignes tarifaires officielles"],
+  ["Current consolidated schedule", "Barème consolidé actuel"],
+  ["At 50%", "À 50 %"],
+  ["Highest retaliatory rate", "Taux de représailles le plus élevé"],
+  ["Covered imports", "Importations visées"],
+  ["Official aggregate, not line-level", "Total officiel, non ventilé par ligne"],
+  ["Effective", "En vigueur"],
+  ["12:01 a.m. EDT, 2026", "00 h 01 HAE, 2026"],
+  ["FIELD NOTE 01:", "NOTE DE TERRAIN 01 :"],
+  ["This explorer follows the published table exactly and will not pad the list with expired measures.", "Cet outil suit fidèlement le tableau publié et n’ajoute aucune mesure expirée."],
+  ["Immediate action // consumer targets", "Action immédiate // priorités de consommation"],
+  ["10 U.S. product groups to skip first", "10 groupes de produits américains à éviter d’abord"],
+  ["Ranked for practical leverage, not claimed dollar volume: tariff rate + purchase visibility + Canadian substitution potential + breadth of covered lines.", "Classés selon leur effet pratique, et non selon une valeur monétaire déclarée : taux tarifaire, visibilité des achats, possibilités de remplacement canadien et étendue des lignes visées."],
+  ["These are campaign priorities, not an official government value ranking. Check country of origin: tariffs apply to U.S.-origin goods, not every American brand.", "Il s’agit de priorités de campagne, et non d’un classement officiel selon la valeur. Vérifiez le pays d’origine : les tarifs visent les biens d’origine américaine, pas toutes les marques américaines."],
+  ["Verified Canadian alternatives // pilot", "Options canadiennes vérifiées // projet pilote"],
+  ["Two places to start in every priority category", "Deux points de départ dans chaque catégorie prioritaire"],
+  ["Independent, unpaid listings checked against official company sources on Aug. 28, 2026. “Canadian-owned” and “made in Canada” are not treated as the same claim.", "Fiches indépendantes et non rémunérées, vérifiées dans les sources officielles des entreprises le 28 août 2026. « Propriété canadienne » et « fabriqué au Canada » ne sont pas considérés comme équivalents."],
+  ["Check before you buy.", "Vérifiez avant d’acheter."],
+  ["Save to your phone // grocery field notes", "À enregistrer sur votre téléphone // notes d’épicerie"],
+  ["Canadian Grocery Guide", "Guide d’épicerie canadien"],
+  ["Download all 12 cards", "Télécharger les 12 cartes"],
+  ["Swipe cards →", "Faites glisser les cartes →"],
+  ["Use these as starting points, not guarantees.", "Utilisez-les comme points de départ, non comme garanties."],
+  ["Twelve screenshot-friendly cards with 30 verified starting points across ten grocery-store aisles. Open a card, save the full-size image, and check the wording on the package while you shop.", "Douze cartes faciles à enregistrer, avec 30 points de départ vérifiés dans dix rayons d’épicerie. Ouvrez une carte, enregistrez l’image pleine grandeur et vérifiez le libellé sur l’emballage en magasin."],
+  ["Find a product", "Trouver un produit"],
+  ["Search the schedule", "Rechercher dans le barème"],
+  ["Reset", "Réinitialiser"],
+  ["Search by HS code or product description", "Rechercher par code SH ou description de produit"],
+  ["HS code or product description", "Code SH ou description de produit"],
+  ["Tariff rate", "Taux tarifaire"],
+  ["Sector", "Secteur"],
+  ["All sectors", "Tous les secteurs"],
+  ["Sort", "Trier"],
+  ["HS code: low to high", "Code SH : ordre croissant"],
+  ["Rate: high to low", "Taux : ordre décroissant"],
+  ["Sector: A–Z", "Secteur : A–Z"],
+  ["Show only 50%", "Afficher seulement 50 %"],
+  ["Complete HS list", "Liste complète des codes SH"],
+  ["Compare sectors", "Comparer les secteurs"],
+  ["Export filtered CSV", "Exporter le CSV filtré"],
+  ["HS code", "Code SH"],
+  ["Indicative description", "Description indicative"],
+  ["Rate", "Taux"],
+  ["Trade impact", "Impact commercial"],
+  ["Open details", "Ouvrir les détails"],
+  ["No tariff lines match", "Aucune ligne tarifaire ne correspond"],
+  ["Broaden the search or restore all rates.", "Élargissez la recherche ou rétablissez tous les taux."],
+  ["Reset filters", "Réinitialiser les filtres"],
+  ["Previous", "Précédent"],
+  ["Next", "Suivant"],
+  ["Filtered comparison", "Comparaison filtrée"],
+  ["Retaliatory scope by sector", "Portée des représailles par secteur"],
+  ["Bars show tariff-line count. Dollar exposure is available only for the full C$27.6B measure.", "Les barres indiquent le nombre de lignes tarifaires. L’exposition en dollars n’est disponible que pour la mesure globale de 27,6 G$ CA."],
+  ["Keep the resource independent", "Gardons la ressource indépendante"],
+  ["Support ZED DAYS", "Soutenir ZED DAYS"],
+  ["ZED DAYS is an independently run Canadian public resource, researched, designed and maintained without paid listings or corporate influence.", "ZED DAYS est une ressource publique canadienne indépendante, recherchée, conçue et tenue à jour sans fiches payantes ni influence d’entreprise."],
+  ["Optional contributions help cover hosting, source verification, translation, regular updates, and the development of free printable and physical field resources. When funding permits, printed materials will be distributed to communities at no charge.", "Les contributions facultatives aident à payer l’hébergement, la vérification des sources, la traduction, les mises à jour régulières et la création de ressources imprimables et physiques gratuites. Lorsque le financement le permettra, du matériel imprimé sera distribué gratuitement dans les communautés."],
+  ["Contributions never influence which products or companies appear in the guide. Digital resources will remain free for everyone.", "Les contributions n’influencent jamais les produits ou entreprises qui figurent dans le guide. Les ressources numériques resteront gratuites pour tout le monde."],
+  ["ZED DAYS is not currently a registered charity. Contributions are not eligible for charitable tax receipts.", "ZED DAYS n’est pas actuellement un organisme de bienfaisance enregistré. Les contributions ne donnent pas droit à un reçu fiscal."],
+  ["Source: Department of Finance Canada", "Source : ministère des Finances Canada"],
+  ["Open official schedule", "Ouvrir le barème officiel"],
+  ["Method & limits", "Méthode et limites"],
+  ["What this dashboard measures", "Ce que mesure ce tableau de bord"],
+  ["Read the official announcement", "Lire l’annonce officielle"],
+]);
+
+function translateStaticText(language) {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.parentElement?.closest("script, style")) continue;
+    if (node.__zedOriginal === undefined) node.__zedOriginal = node.nodeValue;
+    const original = node.__zedOriginal;
+    const key = original.trim().replace(/\s+/g, " ");
+    const replacement = language === "fr" ? mainFrenchText.get(key) : null;
+    if (replacement) {
+      const leading = original.match(/^\s*/)?.[0] || "";
+      const trailing = original.match(/\s*$/)?.[0] || "";
+      node.nodeValue = `${leading}${replacement}${trailing}`;
+    } else {
+      node.nodeValue = original;
+    }
+  }
+}
+
+function setMainLanguage(language) {
+  state.language = language;
+  document.documentElement.lang = language;
+  document.documentElement.dataset.language = language;
+  document.title = language === "fr"
+    ? "Guide des contre-tarifs ZED DAYS | 8 septembre 2026"
+    : "ZED DAYS Counter-Tariff Field Guide | September 8, 2026";
+  $("#languageEnglish").setAttribute("aria-pressed", String(language === "en"));
+  $("#languageFrench").setAttribute("aria-pressed", String(language === "fr"));
+  translateStaticText(language);
+  if (state.rows.length) {
+    renderPriorities();
+    renderAlternatives();
+    applyFilters();
+  }
+}
 
 const priorityGroups = [
   {
@@ -340,42 +477,46 @@ function renderTable() {
   const start = (state.page - 1) * pageSize;
   const pageRows = state.filtered.slice(start, start + pageSize);
   const fiftyCount = state.filtered.filter((row) => row.tariff_rate_pct === 50).length;
-  const lineLabel = state.filtered.length === 1 ? "line" : "lines";
-  elements.count.textContent = `${fmt.format(state.filtered.length)} ${lineLabel} • ${fmt.format(fiftyCount)} at 50%${showingAll ? " • complete list shown" : ""}`;
+  const fr = state.language === "fr";
+  const lineLabel = fr
+    ? (state.filtered.length === 1 ? "ligne" : "lignes")
+    : (state.filtered.length === 1 ? "line" : "lines");
+  elements.count.textContent = `${formatNumber(state.filtered.length)} ${lineLabel} • ${formatNumber(fiftyCount)} ${fr ? "à" : "at"} 50%${showingAll ? (fr ? " • liste complète affichée" : " • complete list shown") : ""}`;
   elements.empty.hidden = pageRows.length !== 0;
   elements.body.innerHTML = pageRows
     .map(
       (row) => `
         <tr data-testid="row-tariff-${row.hs_code.replaceAll(".", "-")}">
-          <td data-label="HS code"><span class="code">${escapeHtml(row.hs_code)}</span></td>
-          <td class="description" data-label="Description">
+          <td data-label="${fr ? "Code SH" : "HS code"}"><span class="code">${escapeHtml(row.hs_code)}</span></td>
+          <td class="description" data-label="${fr ? "Description" : "Description"}">
             <strong>${escapeHtml(row.heading)}</strong>
-            <span>${escapeHtml(row.description || "No narrower description published")}</span>
+            <span>${escapeHtml(row.description || (fr ? "Aucune description plus précise publiée" : "No narrower description published"))}</span>
           </td>
-          <td data-label="Sector"><span class="sector-badge">${escapeHtml(row.sector)}</span></td>
-          <td data-label="Rate"><span class="rate-badge ${row.tariff_rate_pct === 50 ? "rate-50" : ""}">${row.tariff_rate_pct}%</span></td>
-          <td data-label="Trade impact"><span class="impact">Included in C$27.6B aggregate</span></td>
-          <td data-label="Details"><button class="details-button" type="button" data-code="${escapeHtml(row.hs_code)}" aria-label="Open details for ${escapeHtml(row.hs_code)}">Open →</button></td>
+          <td data-label="${fr ? "Secteur" : "Sector"}"><span class="sector-badge">${escapeHtml(row.sector)}</span></td>
+          <td data-label="${fr ? "Taux" : "Rate"}"><span class="rate-badge ${row.tariff_rate_pct === 50 ? "rate-50" : ""}">${row.tariff_rate_pct}%</span></td>
+          <td data-label="${fr ? "Impact commercial" : "Trade impact"}"><span class="impact">${fr ? "Compris dans le total de 27,6 G$ CA" : "Included in C$27.6B aggregate"}</span></td>
+          <td data-label="${fr ? "Détails" : "Details"}"><button class="details-button" type="button" data-code="${escapeHtml(row.hs_code)}" aria-label="${fr ? "Ouvrir les détails pour" : "Open details for"} ${escapeHtml(row.hs_code)}">${fr ? "OUVRIR" : "OPEN"} →</button></td>
         </tr>
       `,
     )
     .join("");
 
   const pageCount = Math.max(1, Math.ceil(state.filtered.length / pageSize));
-  elements.pageStatus.textContent = `Page ${state.page} of ${pageCount}`;
+  elements.pageStatus.textContent = `${fr ? "Page" : "Page"} ${state.page} ${fr ? "sur" : "of"} ${pageCount}`;
   elements.prev.disabled = state.page <= 1;
   elements.next.disabled = state.page >= pageCount;
   elements.pagination.hidden = showingAll || state.filtered.length <= pageSize;
   elements.showAll.setAttribute("aria-pressed", String(showingAll));
   const fullSchedule = state.filtered.length === state.rows.length;
   elements.showAll.textContent = showingAll
-    ? "Show 24 per page"
+    ? (fr ? "Afficher 24 par page" : "Show 24 per page")
     : fullSchedule
-      ? `Show all ${fmt.format(state.filtered.length)} HS codes`
-      : `Show all ${fmt.format(state.filtered.length)} matches`;
+      ? `${fr ? "Afficher les" : "Show all"} ${formatNumber(state.filtered.length)} ${fr ? "codes SH" : "HS codes"}`
+      : `${fr ? "Afficher les" : "Show all"} ${formatNumber(state.filtered.length)} ${fr ? "résultats" : "matches"}`;
 }
 
 function renderComparison() {
+  const fr = state.language === "fr";
   const sectors = new Map();
   for (const row of state.filtered) {
     const entry = sectors.get(row.sector) || { total: 0, fifty: 0, maxRate: 0 };
@@ -392,18 +533,18 @@ function renderComparison() {
           ([name, value]) => `
             <div class="sector-row">
               <span class="sector-name">${escapeHtml(name)}</span>
-              <div class="bar-track" aria-label="${value.total} lines, ${value.fifty} at 50 percent">
+              <div class="bar-track" aria-label="${value.total} ${fr ? "lignes" : "lines"}, ${value.fifty} ${fr ? "à 50 pour cent" : "at 50 percent"}">
                 <span class="bar-total" style="width:${(value.total / max) * 100}%"></span>
                 <span class="bar-fifty" style="width:${(value.fifty / max) * 100}%"></span>
               </div>
-              <span class="sector-metric" title="All tariff lines">${value.total} lines</span>
-              <span class="sector-metric" title="Lines at 50%">${value.fifty} × 50%</span>
-              <span class="aggregate-only">Aggregate only</span>
+              <span class="sector-metric" title="${fr ? "Toutes les lignes tarifaires" : "All tariff lines"}">${value.total} ${fr ? "lignes" : "lines"}</span>
+              <span class="sector-metric" title="${fr ? "Lignes à 50 %" : "Lines at 50%"}">${value.fifty} × 50%</span>
+              <span class="aggregate-only">${fr ? "Total seulement" : "Aggregate only"}</span>
             </div>
           `,
         )
         .join("")
-    : `<div class="empty-state"><h3>No sectors to compare</h3><p>Adjust the active filters.</p></div>`;
+    : `<div class="empty-state"><h3>${fr ? "Aucun secteur à comparer" : "No sectors to compare"}</h3><p>${fr ? "Modifiez les filtres actifs." : "Adjust the active filters."}</p></div>`;
 }
 
 function getPriorityRows(group) {
@@ -416,6 +557,7 @@ function getPriorityRows(group) {
 }
 
 function renderPriorities() {
+  const fr = state.language === "fr";
   $("#priorityGrid").innerHTML = priorityGroups
     .map((group, index) => {
       const rows = getPriorityRows(group);
@@ -427,9 +569,9 @@ function renderPriorities() {
           <p>${escapeHtml(group.reason)}</p>
           <div class="priority-meta">
             <span>${escapeHtml(group.rate)}</span>
-            <span>${rows.length} lines${fifty ? ` / ${fifty} at 50%` : ""}</span>
+            <span>${rows.length} ${fr ? "lignes" : "lines"}${fifty ? ` / ${fifty} ${fr ? "à" : "at"} 50%` : ""}</span>
           </div>
-          <button type="button" data-priority="${index}" aria-label="Show ${escapeHtml(group.title)} tariff lines">SHOW →</button>
+          <button type="button" data-priority="${index}" aria-label="${fr ? "Afficher les lignes tarifaires" : "Show tariff lines"}: ${escapeHtml(group.title)}">${fr ? "AFFICHER" : "SHOW"} →</button>
         </article>
       `;
     })
@@ -437,6 +579,7 @@ function renderPriorities() {
 }
 
 function renderAlternatives() {
+  const fr = state.language === "fr";
   $("#alternativesGrid").innerHTML = alternativesPilot
     .map(
       (group, index) => `
@@ -456,7 +599,7 @@ function renderAlternatives() {
                     </div>
                     <p class="alternative-products">${escapeHtml(option.products)}</p>
                     <p>${escapeHtml(option.note)}</p>
-                    <a href="${escapeHtml(option.source)}" target="_blank" rel="noreferrer">Verify company claim →</a>
+                    <a href="${escapeHtml(option.source)}" target="_blank" rel="noreferrer">${fr ? "Vérifier l’affirmation de l’entreprise" : "Verify company claim"} →</a>
                   </section>
                 `,
               )
@@ -502,23 +645,24 @@ function resetFilters() {
 function showDetails(code) {
   const row = state.rows.find((item) => item.hs_code === code);
   if (!row) return;
+  const fr = state.language === "fr";
   elements.detailContent.innerHTML = `
-    <span class="eyebrow">Tariff item</span>
+    <span class="eyebrow">${fr ? "Article tarifaire" : "Tariff item"}</span>
     <h2 class="detail-code">${escapeHtml(row.hs_code)}</h2>
     <div class="detail-grid">
-      <div class="detail-block"><span class="eyebrow">Assigned rate</span><strong class="${row.tariff_rate_pct === 50 ? "rate-50" : ""}">${row.tariff_rate_pct}%</strong></div>
-      <div class="detail-block"><span class="eyebrow">Sector</span><strong>${escapeHtml(row.sector)}</strong></div>
+      <div class="detail-block"><span class="eyebrow">${fr ? "Taux attribué" : "Assigned rate"}</span><strong class="${row.tariff_rate_pct === 50 ? "rate-50" : ""}">${row.tariff_rate_pct}%</strong></div>
+      <div class="detail-block"><span class="eyebrow">${fr ? "Secteur" : "Sector"}</span><strong>${escapeHtml(row.sector)}</strong></div>
     </div>
     <div class="detail-description">
-      <span class="eyebrow">Official description</span>
+      <span class="eyebrow">${fr ? "Description officielle" : "Official description"}</span>
       <h3>${escapeHtml(row.heading)}</h3>
-      <p>${escapeHtml(row.description || "No narrower indicative description published.")}</p>
+      <p>${escapeHtml(row.description || (fr ? "Aucune description indicative plus précise n’a été publiée." : "No narrower indicative description published."))}</p>
     </div>
     <div class="detail-description">
-      <span class="eyebrow">Trade impact</span>
-      <p>Included in the official C$27.6B aggregate. No item-level import value is published in the schedule.</p>
+      <span class="eyebrow">${fr ? "Impact commercial" : "Trade impact"}</span>
+      <p>${fr ? "Compris dans le total officiel de 27,6 G$ CA. Le barème ne publie aucune valeur d’importation par article." : "Included in the official C$27.6B aggregate. No item-level import value is published in the schedule."}</p>
     </div>
-    <p class="detail-description"><a class="source-link" href="${row.source_url}" target="_blank" rel="noreferrer">Verify in official schedule</a></p>
+    <p class="detail-description"><a class="source-link" href="${row.source_url}" target="_blank" rel="noreferrer">${fr ? "Vérifier dans le barème officiel" : "Verify in official schedule"}</a></p>
   `;
   elements.detail.showModal();
 }
@@ -569,9 +713,9 @@ async function init() {
     "beforeend",
     sectors.map((sector) => `<option value="${escapeHtml(sector)}">${escapeHtml(sector)}</option>`).join(""),
   );
-  $("#totalLines").textContent = fmt.format(state.rows.length);
-  $("#noticeCount").textContent = fmt.format(state.rows.length);
-  $("#fiftyLines").textContent = fmt.format(state.rows.filter((row) => row.tariff_rate_pct === 50).length);
+  $("#totalLines").textContent = formatNumber(state.rows.length);
+  $("#noticeCount").textContent = formatNumber(state.rows.length);
+  $("#fiftyLines").textContent = formatNumber(state.rows.filter((row) => row.tariff_rate_pct === 50).length);
   renderPriorities();
   applyFilters();
 }
@@ -630,6 +774,8 @@ $("#priorityGrid").addEventListener("click", (event) => {
 elements.itemsTab.addEventListener("click", () => setView("items"));
 elements.compareTab.addEventListener("click", () => setView("compare"));
 $("#methodButton").addEventListener("click", () => elements.method.showModal());
+$("#languageEnglish").addEventListener("click", () => setMainLanguage("en"));
+$("#languageFrench").addEventListener("click", () => setMainLanguage("fr"));
 $("#themeButton").addEventListener("click", () => {
   const root = document.documentElement;
   const current = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");

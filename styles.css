@@ -1521,6 +1521,84 @@ dialog::backdrop {
   white-space: nowrap;
 }
 
+.field-guide-callout {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) auto;
+  align-items: stretch;
+  max-width: 1500px;
+  margin: 0 auto 14px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  background: var(--surface);
+  text-decoration: none;
+  box-shadow: 7px 7px 0 var(--accent);
+  transform: translate(-3px, -3px);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.field-guide-callout:hover,
+.field-guide-callout:focus-visible {
+  background: var(--accent-soft);
+  box-shadow: 3px 3px 0 var(--accent);
+  transform: translate(1px, 1px);
+}
+
+.field-guide-callout-index {
+  display: grid;
+  min-height: 104px;
+  place-content: center;
+  border-right: 2px solid var(--ink);
+  color: var(--surface);
+  background: var(--accent);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.field-guide-callout-copy {
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  padding: 17px 22px;
+}
+
+.field-guide-callout-copy small {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+}
+
+.field-guide-callout-copy strong {
+  font-size: clamp(20px, 2.6vw, 34px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.field-guide-callout-copy > span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.field-guide-callout-action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
+  border-left: 1px dashed var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.field-guide-callout-action b {
+  color: var(--accent);
+  font-size: 27px;
+}
+
 .impact-explainer {
   max-width: 1500px;
   margin: 0 auto 14px;
@@ -2250,6 +2328,34 @@ footer {
   }
   .manifesto-strip .issue {
     margin: 5px 0 0;
+  }
+  .field-guide-callout {
+    grid-template-columns: 70px minmax(0, 1fr);
+    box-shadow: 4px 4px 0 var(--accent);
+    transform: translate(-2px, -2px);
+  }
+  .field-guide-callout-index {
+    min-height: 126px;
+    font-size: 14px;
+  }
+  .field-guide-callout-copy {
+    padding: 14px;
+  }
+  .field-guide-callout-copy small {
+    font-size: 11px;
+  }
+  .field-guide-callout-copy strong {
+    font-size: 19px;
+  }
+  .field-guide-callout-copy > span {
+    font-size: 13px;
+  }
+  .field-guide-callout-action {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-top: 1px dashed var(--ink);
+    border-left: 0;
   }
   .impact-explainer {
     padding: 13px;

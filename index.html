@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-language="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +35,10 @@
         </div>
         <div class="top-actions">
           <span class="as-of">Official list updated Aug. 26, 2026</span>
-          <a class="icon-button text-button guide-home-link" href="./field-guide.html">Field guide</a>
+          <div class="guide-language-toggle" role="group" aria-label="Language / Langue">
+            <button id="languageEnglish" type="button" aria-pressed="true">EN</button>
+            <button id="languageFrench" type="button" aria-pressed="false">FR</button>
+          </div>
           <button id="methodButton" class="icon-button text-button" type="button" data-testid="button-method">
             Method
           </button>
@@ -54,6 +57,16 @@
           <span>WE CAN CHOOSE WHERE THE SALE GOES.</span>
           <span class="issue">ISSUE 09.08.26</span>
         </section>
+
+        <a class="field-guide-callout" href="./field-guide.html" aria-label="Open the searchable Canadian-made Field Guide">
+          <span class="field-guide-callout-index">FIELD<br />GUIDE</span>
+          <span class="field-guide-callout-copy">
+            <small>SEARCHABLE // BILINGUAL // SOURCE-CHECKED</small>
+            <strong>300 VERIFIED CANADIAN-MADE PRODUCTS</strong>
+            <span>Browse products and manufacturers across 14 sectors.</span>
+          </span>
+          <span class="field-guide-callout-action">OPEN THE GUIDE <b>→</b></span>
+        </a>
 
         <section class="impact-explainer" aria-labelledby="impactTitle">
           <div class="impact-intro">
