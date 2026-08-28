@@ -22,7 +22,7 @@ const mainFrenchText = new Map([
   ["Official list updated Aug. 26, 2026", "Liste officielle mise à jour le 26 août 2026"],
   ["Method", "Méthode"],
   ["A TARIFF RAISES THE PRICE.", "UN TARIF FAIT MONTER LE PRIX."],
-  ["WE CAN CHOOSE WHERE THE SALE GOES.", "NOUS POUVONS CHOISIR OÙ VA LA VENTE."],
+  ["WE CAN CHOOSE WHERE THAT SALE GOES.", "NOUS POUVONS CHOISIR OÙ VA CETTE VENTE."],
   ["ISSUE 09.08.26", "ÉDITION 08.09.26"],
   ["FIELD", "GUIDE"],
   ["GUIDE", "TERRAIN"],
