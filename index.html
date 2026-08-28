@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tariff Scope Explorer | Canada, September 8, 2026</title>
+    <meta
+      name="description"
+      content="Search and compare Canadian counter-tariffs on U.S.-origin goods effective September 8, 2026."
+    />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=jet-brains-mono@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to results</a>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" role="img" aria-label="Tariff Scope Explorer">
+            <path d="M3 6h26M3 16h26M3 26h26" />
+            <path d="M9 3v26M23 3v26" />
+            <rect x="9" y="6" width="14" height="10" class="mark-fill" />
+          </svg>
+          <div>
+            <span class="eyebrow">Canada / U.S. trade measures</span>
+            <h1>Tariff Scope Explorer</h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <span class="as-of">Official list updated Aug. 26, 2026</span>
+          <button id="methodButton" class="icon-button text-button" type="button" data-testid="button-method">
+            Method
+          </button>
+          <button id="themeButton" class="icon-button" type="button" aria-label="Switch colour theme" data-testid="button-theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="main" class="main">
+        <section class="status-strip" aria-label="Measure summary">
+          <article class="kpi">
+            <span class="kpi-label">Official tariff lines</span>
+            <strong id="totalLines" data-testid="value-total-lines">648</strong>
+            <span class="kpi-note">Current consolidated schedule</span>
+          </article>
+          <article class="kpi alert-kpi">
+            <span class="kpi-label">At 50%</span>
+            <strong id="fiftyLines" data-testid="value-fifty-lines">413</strong>
+            <span class="kpi-note">Highest retaliatory rate</span>
+          </article>
+          <article class="kpi">
+            <span class="kpi-label">Covered imports</span>
+            <strong>C$27.6B</strong>
+            <span class="kpi-note">Official aggregate, not line-level</span>
+          </article>
+          <article class="kpi">
+            <span class="kpi-label">Effective</span>
+            <strong>Sep. 8</strong>
+            <span class="kpi-note">12:01 a.m. EDT, 2026</span>
+          </article>
+        </section>
+
+        <section class="notice" aria-label="Coverage note">
+          <strong>Count check:</strong>
+          The current official schedule contains <span id="noticeCount">648</span> tariff items, not 700+.
+          This explorer follows the published table exactly and will not pad the list with expired measures.
+        </section>
+
+        <section class="workspace">
+          <div class="filters-panel">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Find a product</span>
+                <h2>Search the schedule</h2>
+              </div>
+              <button id="resetButton" class="quiet-button" type="button" data-testid="button-reset">Reset</button>
+            </div>
+
+            <label class="search-field">
+              <span class="sr-only">Search by HS code or product description</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+              <input id="searchInput" type="search" placeholder="HS code or product description" autocomplete="off" data-testid="input-search" />
+              <kbd>/</kbd>
+            </label>
+
+            <div class="filter-row">
+              <fieldset class="rate-filter">
+                <legend>Tariff rate</legend>
+                <label><input type="checkbox" name="rate" value="15" checked /> <span>15%</span></label>
+                <label><input type="checkbox" name="rate" value="25" checked /> <span>25%</span></label>
+                <label class="rate-50"><input type="checkbox" name="rate" value="50" checked /> <span>50%</span></label>
+              </fieldset>
+
+              <label class="select-field">
+                <span>Sector</span>
+                <select id="sectorSelect" data-testid="select-sector">
+                  <option value="all">All sectors</option>
+                </select>
+              </label>
+
+              <label class="select-field">
+                <span>Sort</span>
+                <select id="sortSelect" data-testid="select-sort">
+                  <option value="code-asc">HS code: low to high</option>
+                  <option value="rate-desc">Rate: high to low</option>
+                  <option value="sector-asc">Sector: A–Z</option>
+                </select>
+              </label>
+
+              <button id="fiftyOnlyButton" class="flag-button" type="button" aria-pressed="false" data-testid="button-fifty-only">
+                <span class="flag-dot"></span> Focus 50%
+              </button>
+            </div>
+          </div>
+
+          <div class="view-tabs" role="tablist" aria-label="Dashboard views">
+            <button class="tab is-active" id="itemsTab" role="tab" aria-selected="true" aria-controls="itemsView" data-testid="tab-items">
+              Items
+            </button>
+            <button class="tab" id="compareTab" role="tab" aria-selected="false" aria-controls="compareView" data-testid="tab-compare">
+              Compare sectors
+            </button>
+          </div>
+
+          <section id="itemsView" class="view" role="tabpanel" aria-labelledby="itemsTab">
+            <div class="table-toolbar">
+              <p id="resultCount" class="result-count" aria-live="polite" data-testid="text-result-count">Loading tariff lines…</p>
+              <button id="exportButton" class="export-button" type="button" data-testid="button-export">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" /></svg>
+                Export filtered CSV
+              </button>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">HS code</th>
+                    <th scope="col">Indicative description</th>
+                    <th scope="col">Sector</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Trade impact</th>
+                    <th scope="col"><span class="sr-only">Open details</span></th>
+                  </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+              </table>
+              <div id="emptyState" class="empty-state" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7" /></svg>
+                <h3>No tariff lines match</h3>
+                <p>Broaden the search or restore all rates.</p>
+                <button id="emptyResetButton" class="export-button" type="button">Reset filters</button>
+              </div>
+            </div>
+
+            <nav class="pagination" aria-label="Result pages">
+              <button id="prevButton" class="page-button" type="button" data-testid="button-prev">Previous</button>
+              <span id="pageStatus" data-testid="text-page-status">Page 1</span>
+              <button id="nextButton" class="page-button" type="button" data-testid="button-next">Next</button>
+            </nav>
+          </section>
+
+          <section id="compareView" class="view" role="tabpanel" aria-labelledby="compareTab" hidden>
+            <div class="comparison-head">
+              <div>
+                <span class="eyebrow">Filtered comparison</span>
+                <h2>Retaliatory scope by sector</h2>
+              </div>
+              <p>Bars show tariff-line count. Dollar exposure is available only for the full C$27.6B measure.</p>
+            </div>
+            <div id="sectorChart" class="sector-chart" data-testid="chart-sectors"></div>
+          </section>
+        </section>
+
+        <footer>
+          <span>Source: Department of Finance Canada</span>
+          <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank" rel="noreferrer">Open official schedule</a>
+        </footer>
+      </main>
+    </div>
+
+    <dialog id="detailDialog" class="detail-dialog">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Close details" value="cancel">×</button>
+      </form>
+      <div id="detailContent"></div>
+    </dialog>
+
+    <dialog id="methodDialog" class="method-dialog">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Close method" value="cancel">×</button>
+      </form>
+      <span class="eyebrow">Method & limits</span>
+      <h2>What this dashboard measures</h2>
+      <ul>
+        <li>Rows are parsed from the Government of Canada consolidated schedule updated August 26, 2026.</li>
+        <li>Sector labels are analytical groupings based primarily on HS chapter, with product-term rules for appliances and farm equipment.</li>
+        <li>The government reports C$27.6B in covered U.S. imports for the measure as a whole. It does not publish a value beside each tariff item in this schedule.</li>
+        <li>“Trade impact” therefore remains “aggregate only” at item level. Sector bars compare tariff-line breadth, not dollars.</li>
+        <li>The 648-line total is authoritative for the current September 8 table. Historical or expired countermeasures are excluded.</li>
+      </ul>
+      <a class="source-link" href="https://www.canada.ca/en/department-finance/news/2026/08/canada-announces-targeted-countermeasures-and-substantive-support-for-workers-and-businesses-in-response-to-us-tariffs.html" target="_blank" rel="noreferrer">Read the official announcement</a>
+    </dialog>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

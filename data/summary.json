@@ -1,0 +1,62 @@
+{
+  "tables": [
+    {
+      "table_index": 0,
+      "headers": [
+        "Tariff item",
+        "Harmonized System (HS) Heading",
+        "Indicative description",
+        "Tariff rate"
+      ],
+      "row_count_excluding_header": 648
+    },
+    {
+      "table_index": 1,
+      "headers": [
+        "Tariff item",
+        "Harmonized System (HS) Chapter",
+        "Harmonized System (HS) Heading",
+        "Indicative description",
+        "Effective date",
+        "Tariff rate"
+      ],
+      "row_count_excluding_header": 313
+    },
+    {
+      "table_index": 2,
+      "headers": [
+        "Tariff item",
+        "Harmonized System (HS) Chapter",
+        "Harmonized System (HS) Heading",
+        "Indicative description",
+        "Effective date",
+        "Tariff rate"
+      ],
+      "row_count_excluding_header": 1814
+    }
+  ],
+  "parsed_rows": 648,
+  "rates": {
+    "15": 21,
+    "25": 214,
+    "50": 413
+  },
+  "sectors": {
+    "Dairy": 62,
+    "Food & beverages": 15,
+    "Personal & household care": 5,
+    "Chemicals & minerals": 2,
+    "Plastics & rubber": 6,
+    "Wood, pulp & paper": 39,
+    "Textiles": 32,
+    "Clothing & apparel": 24,
+    "Other manufactured goods": 2,
+    "Steel, aluminum & metals": 328,
+    "Machinery & electronics": 49,
+    "Appliances": 14,
+    "Agricultural equipment": 3,
+    "Transportation": 40,
+    "Furniture & lighting": 22,
+    "Sports, recreation & toys": 5
+  }
+}
