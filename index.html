@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tariff Scope Explorer | Canada, September 8, 2026</title>
+    <title>ZED DAYS Counter-Tariff Field Guide | September 8, 2026</title>
     <meta
       name="description"
       content="Search and compare Canadian counter-tariffs on U.S.-origin goods effective September 8, 2026."
     />
-    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=jet-brains-mono@400,500,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -20,14 +21,15 @@
     <div class="app-shell">
       <header class="topbar">
         <div class="brand">
-          <svg class="brand-mark" viewBox="0 0 32 32" role="img" aria-label="Tariff Scope Explorer">
-            <path d="M3 6h26M3 16h26M3 26h26" />
-            <path d="M9 3v26M23 3v26" />
-            <rect x="9" y="6" width="14" height="10" class="mark-fill" />
-          </svg>
+          <div class="zed-mark" aria-label="ZED zero DAYS">
+            <span>ZED</span>
+            <span class="zero">0<i></i></span>
+            <span>DAYS</span>
+          </div>
           <div>
-            <span class="eyebrow">Canada / U.S. trade measures</span>
-            <h1>Tariff Scope Explorer</h1>
+            <span class="eyebrow">Zero engagement // Canada</span>
+            <h1>Counter-tariff field guide</h1>
+            <p class="tagline">Zero Engagement. Infinite Power.</p>
           </div>
         </div>
         <div class="top-actions">
@@ -44,6 +46,13 @@
       </header>
 
       <main id="main" class="main">
+        <section class="manifesto-strip" aria-label="Campaign statement">
+          <span>BUYING IS A VOTE.</span>
+          <span class="slash">/</span>
+          <span>WITHHOLD IT WHERE IT COUNTS.</span>
+          <span class="issue">ISSUE 09.08.26</span>
+        </section>
+
         <section class="status-strip" aria-label="Measure summary">
           <article class="kpi">
             <span class="kpi-label">Official tariff lines</span>
@@ -68,12 +77,30 @@
         </section>
 
         <section class="notice" aria-label="Coverage note">
-          <strong>Count check:</strong>
+          <strong>FIELD NOTE 01:</strong>
           The current official schedule contains <span id="noticeCount">648</span> tariff items, not 700+.
           This explorer follows the published table exactly and will not pad the list with expired measures.
         </section>
 
         <section class="workspace">
+          <section class="priority-section" aria-labelledby="priorityTitle">
+            <div class="priority-heading">
+              <div>
+                <span class="eyebrow">Immediate action // consumer targets</span>
+                <h2 id="priorityTitle">10 U.S. product groups to skip first</h2>
+              </div>
+              <p>
+                Ranked for practical leverage, not claimed dollar volume: tariff rate + purchase visibility +
+                Canadian substitution potential + breadth of covered lines.
+              </p>
+            </div>
+            <div id="priorityGrid" class="priority-grid" data-testid="priority-grid"></div>
+            <p class="priority-caveat">
+              These are campaign priorities, not an official government value ranking. Check country of origin:
+              tariffs apply to U.S.-origin goods, not every American brand.
+            </p>
+          </section>
+
           <div class="filters-panel">
             <div class="section-heading">
               <div>
@@ -115,7 +142,7 @@
               </label>
 
               <button id="fiftyOnlyButton" class="flag-button" type="button" aria-pressed="false" data-testid="button-fifty-only">
-                <span class="flag-dot"></span> Focus 50%
+                <span class="flag-dot"></span> Show only 50%
               </button>
             </div>
           </div>
@@ -205,6 +232,7 @@
         <li>The government reports C$27.6B in covered U.S. imports for the measure as a whole. It does not publish a value beside each tariff item in this schedule.</li>
         <li>“Trade impact” therefore remains “aggregate only” at item level. Sector bars compare tariff-line breadth, not dollars.</li>
         <li>The 648-line total is authoritative for the current September 8 table. Historical or expired countermeasures are excluded.</li>
+        <li>The Top 10 is an editorial action list. It prioritizes consumer-facing products using rate, visibility, substitutability and covered-line breadth. It is not presented as a dollar ranking.</li>
       </ul>
       <a class="source-link" href="https://www.canada.ca/en/department-finance/news/2026/08/canada-announces-targeted-countermeasures-and-substantive-support-for-workers-and-businesses-in-response-to-us-tariffs.html" target="_blank" rel="noreferrer">Read the official announcement</a>
     </dialog>

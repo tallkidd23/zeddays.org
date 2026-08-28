@@ -14,6 +14,69 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 const fmt = new Intl.NumberFormat("en-CA");
 
+const priorityGroups = [
+  {
+    title: "Furniture & seating",
+    sector: "Furniture & lighting",
+    rate: "50% priority",
+    reason: "Big-ticket, visible purchases with Canadian and non-U.S. alternatives.",
+  },
+  {
+    title: "Clothing & apparel",
+    sector: "Clothing & apparel",
+    rate: "50% priority",
+    reason: "Frequent purchases across T-shirts, suits, trousers, dresses and outerwear.",
+  },
+  {
+    title: "Major appliances",
+    sector: "Appliances",
+    rate: "15–25%",
+    reason: "High-value purchases make one brand switch count more than many small buys.",
+  },
+  {
+    title: "Dairy products",
+    sector: "Dairy",
+    rate: "25–50%",
+    reason: "Repeat grocery spending can redirect demand every week.",
+  },
+  {
+    title: "Paper & stationery",
+    sector: "Wood, pulp & paper",
+    rate: "Up to 50%",
+    reason: "Broad coverage and easy substitution for household and office purchases.",
+  },
+  {
+    title: "Beauty & fragrance",
+    sector: "Personal & household care",
+    rate: "50% priority",
+    reason: "Perfume, makeup and hair products are clearly branded and easy to replace.",
+  },
+  {
+    title: "Sports & outdoor gear",
+    sector: "Sports, recreation & toys",
+    rate: "50% priority",
+    reason: "Includes fitness equipment, outdoor goods, golf items and fishing rods.",
+  },
+  {
+    title: "Electronics & machinery",
+    sector: "Machinery & electronics",
+    rate: "15–50%",
+    reason: "A broad equipment category where purchase values can be substantial.",
+  },
+  {
+    title: "Plastic kitchenware",
+    query: "tableware kitchenware",
+    rate: "50% priority",
+    reason: "Everyday household products with abundant alternatives.",
+  },
+  {
+    title: "Hand tools",
+    query: "hand tools",
+    rate: "50% priority",
+    reason: "Durable purchases where origin can be checked before buying.",
+  },
+];
+
 const elements = {
   search: $("#searchInput"),
   sector: $("#sectorSelect"),
@@ -132,6 +195,51 @@ function renderComparison() {
     : `<div class="empty-state"><h3>No sectors to compare</h3><p>Adjust the active filters.</p></div>`;
 }
 
+function getPriorityRows(group) {
+  if (group.sector) return state.rows.filter((row) => row.sector === group.sector);
+  const terms = group.query.toLowerCase().split(/\s+/);
+  return state.rows.filter((row) => {
+    const text = row.full_description.toLowerCase();
+    return terms.every((term) => text.includes(term));
+  });
+}
+
+function renderPriorities() {
+  $("#priorityGrid").innerHTML = priorityGroups
+    .map((group, index) => {
+      const rows = getPriorityRows(group);
+      const fifty = rows.filter((row) => row.tariff_rate_pct === 50).length;
+      return `
+        <article class="priority-card">
+          <span class="priority-rank">${String(index + 1).padStart(2, "0")}</span>
+          <h3>${escapeHtml(group.title)}</h3>
+          <p>${escapeHtml(group.reason)}</p>
+          <div class="priority-meta">
+            <span>${escapeHtml(group.rate)}</span>
+            <span>${rows.length} lines${fifty ? ` / ${fifty} at 50%` : ""}</span>
+          </div>
+          <button type="button" data-priority="${index}" aria-label="Show ${escapeHtml(group.title)} tariff lines">SHOW →</button>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function showPriority(index) {
+  const group = priorityGroups[index];
+  resetFilters();
+  if (group.sector) {
+    state.sector = group.sector;
+    elements.sector.value = group.sector;
+  } else {
+    state.query = group.query;
+    elements.search.value = group.query;
+  }
+  state.page = 1;
+  applyFilters();
+  $(".filters-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function resetFilters() {
   state.query = "";
   state.sector = "all";
@@ -219,6 +327,7 @@ async function init() {
   $("#totalLines").textContent = fmt.format(state.rows.length);
   $("#noticeCount").textContent = fmt.format(state.rows.length);
   $("#fiftyLines").textContent = fmt.format(state.rows.filter((row) => row.tariff_rate_pct === 50).length);
+  renderPriorities();
   applyFilters();
 }
 
@@ -264,6 +373,10 @@ elements.body.addEventListener("click", (event) => {
   if (button) showDetails(button.dataset.code);
 });
 $("#exportButton").addEventListener("click", exportCsv);
+$("#priorityGrid").addEventListener("click", (event) => {
+  const button = event.target.closest("[data-priority]");
+  if (button) showPriority(Number(button.dataset.priority));
+});
 elements.itemsTab.addEventListener("click", () => setView("items"));
 elements.compareTab.addEventListener("click", () => setView("compare"));
 $("#methodButton").addEventListener("click", () => elements.method.showModal());

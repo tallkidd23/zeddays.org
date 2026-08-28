@@ -1,36 +1,36 @@
 :root,
 [data-theme="light"] {
-  --bg: #f4f1e9;
-  --surface: #fbfaf6;
-  --surface-2: #eeebe2;
-  --ink: #17221f;
-  --muted: #5e6864;
-  --faint: #8b948f;
-  --line: #d4d3ca;
-  --accent: #0b665a;
-  --accent-strong: #06443d;
-  --accent-soft: #d9e6df;
-  --alert: #a23b2b;
-  --alert-soft: #f3ddd7;
-  --warning: #ac6b12;
-  --shadow: 0 12px 34px rgba(26, 43, 37, 0.09);
+  --bg: #e8e2d5;
+  --surface: #f4f0e8;
+  --surface-2: #d9d0c0;
+  --ink: #171615;
+  --muted: #5e5a55;
+  --faint: #8e877e;
+  --line: #171615;
+  --accent: #9f1f1f;
+  --accent-strong: #7f1717;
+  --accent-soft: #ead1cd;
+  --alert: #9f1f1f;
+  --alert-soft: #ead1cd;
+  --warning: #8b1116;
+  --shadow: none;
 }
 
 [data-theme="dark"] {
-  --bg: #111714;
-  --surface: #181f1c;
-  --surface-2: #202a26;
-  --ink: #e7ede9;
-  --muted: #a5b1ab;
-  --faint: #78857f;
-  --line: #34413b;
-  --accent: #78c6b5;
-  --accent-strong: #b9eadf;
-  --accent-soft: #253c35;
-  --alert: #f08873;
-  --alert-soft: #492c27;
-  --warning: #e8ae5d;
-  --shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  --bg: #181715;
+  --surface: #211f1c;
+  --surface-2: #302d29;
+  --ink: #eee8dc;
+  --muted: #b8b0a4;
+  --faint: #847d73;
+  --line: #eee8dc;
+  --accent: #d6584f;
+  --accent-strong: #eb746c;
+  --accent-soft: #482325;
+  --alert: #ff676b;
+  --alert-soft: #482325;
+  --warning: #ff676b;
+  --shadow: none;
 }
 
 *,
@@ -54,7 +54,13 @@ body {
   overflow: hidden;
   color: var(--ink);
   background: var(--bg);
-  font-family: "General Sans", "Helvetica Neue", sans-serif;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    color-mix(in srgb, var(--ink) 2%, transparent) 4px
+  );
+  font-family: "Courier Prime", "Courier New", monospace;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -118,8 +124,8 @@ a:focus-visible {
   justify-content: space-between;
   min-height: 76px;
   padding: 12px clamp(16px, 3vw, 40px);
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  border-bottom: 2px solid var(--line);
+  background: var(--surface);
 }
 
 .brand,
@@ -136,17 +142,35 @@ a:focus-visible {
   gap: 12px;
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.6;
+.zed-mark {
+  display: grid;
+  width: 48px;
+  flex: 0 0 48px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 0.78;
+  text-align: center;
 }
 
-.brand-mark .mark-fill {
-  fill: var(--accent);
-  stroke: none;
+.zed-mark .zero {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  color: var(--accent);
+  font-size: 31px;
+  line-height: 0.74;
+  transform: scaleX(0.62);
+}
+
+.zed-mark .zero i {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: 32px;
+  height: 3px;
+  background: currentColor;
+  transform: translate(-50%, -50%) rotate(-58deg);
 }
 
 h1,
@@ -159,7 +183,8 @@ p {
 h1 {
   font-size: clamp(20px, 2.1vw, 28px);
   line-height: 1.1;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -177,7 +202,7 @@ h3 {
 fieldset legend {
   display: block;
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.045em;
@@ -186,6 +211,13 @@ fieldset legend {
 
 .top-actions {
   gap: 8px;
+}
+
+.tagline {
+  margin-top: 2px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .as-of {
@@ -266,7 +298,7 @@ fieldset legend {
 .kpi strong {
   display: block;
   margin-top: 2px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: clamp(24px, 3vw, 34px);
   line-height: 1.2;
   font-variant-numeric: tabular-nums;
@@ -355,7 +387,7 @@ kbd {
   border-radius: 4px;
   color: var(--muted);
   background: var(--surface);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 12px;
 }
 
@@ -397,7 +429,7 @@ kbd {
   border-radius: 6px;
   color: var(--muted);
   background: var(--bg);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 13px;
   font-weight: 600;
 }
@@ -499,7 +531,7 @@ kbd {
 
 .result-count {
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 13px;
 }
 
@@ -541,7 +573,7 @@ th {
   z-index: 2;
   color: var(--muted);
   background: var(--surface-2);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.035em;
@@ -563,7 +595,7 @@ tbody tr:hover {
 
 .code {
   color: var(--accent-strong);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
@@ -604,7 +636,7 @@ tbody tr:hover {
 .rate-badge {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
   color: var(--accent-strong);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
 }
 
 .rate-badge.rate-50 {
@@ -627,7 +659,7 @@ tbody tr:hover {
   gap: 14px;
   margin-top: 12px;
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 13px;
 }
 
@@ -714,7 +746,7 @@ tbody tr:hover {
 }
 
 .sector-metric {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 13px;
   text-align: right;
 }
@@ -771,7 +803,7 @@ dialog::backdrop {
 
 .detail-code {
   color: var(--accent-strong);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Courier Prime", monospace;
   font-size: 25px;
 }
 
@@ -812,6 +844,211 @@ dialog::backdrop {
   margin-top: 10px;
 }
 
+.manifesto-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1500px;
+  margin: 0 auto 14px;
+  padding: 8px 12px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+}
+
+.manifesto-strip .slash {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.manifesto-strip .issue {
+  margin-left: auto;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.priority-section {
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+}
+
+.priority-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 24px;
+  align-items: end;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.priority-heading h2 {
+  max-width: 26ch;
+  margin-top: 3px;
+  font-size: clamp(23px, 3vw, 34px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.priority-heading p,
+.priority-caveat {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.priority-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.priority-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+  padding: 14px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+}
+
+.priority-card:nth-child(5n) {
+  border-right: 0;
+}
+
+.priority-card:nth-child(n + 6) {
+  border-bottom: 0;
+}
+
+.priority-rank {
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.priority-card h3 {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.priority-card p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.priority-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.priority-meta span {
+  padding: 2px 5px;
+  border: 1px solid var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.priority-card button {
+  align-self: flex-end;
+  min-width: 44px;
+  min-height: 44px;
+  margin-top: auto;
+  margin-bottom: -10px;
+  border: 0;
+  color: var(--accent);
+  background: transparent;
+  font-weight: 700;
+}
+
+.priority-caveat {
+  padding-top: 10px;
+  border-top: 1px dashed var(--ink);
+}
+
+.status-strip,
+.notice,
+.filters-panel,
+.table-wrap,
+.sector-chart,
+dialog {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.status-strip {
+  border-width: 2px;
+}
+
+.kpi strong,
+.code,
+.result-count,
+.sector-metric,
+.detail-code {
+  font-family: "Courier Prime", monospace;
+}
+
+.kpi strong,
+.priority-rank,
+.detail-code {
+  text-shadow: 0.5px 0 var(--ink);
+}
+
+.search-field,
+.icon-button,
+.quiet-button,
+.page-button,
+.export-button,
+.flag-button,
+.select-field select,
+.rate-filter span {
+  border-radius: 0;
+}
+
+.notice {
+  border-style: dashed;
+  border-color: var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+
+.filters-panel {
+  border-width: 2px;
+}
+
+.export-button,
+.flag-button[aria-pressed="true"] {
+  border-color: var(--ink);
+  color: var(--surface);
+  background: var(--ink);
+}
+
+.flag-button[aria-pressed="true"] .flag-dot {
+  background: var(--accent);
+}
+
+.sector-badge,
+.rate-badge {
+  border-radius: 0;
+}
+
+.view-tabs {
+  border-bottom: 2px solid var(--ink);
+}
+
+footer {
+  padding-top: 10px;
+  border-top: 1px dashed var(--ink);
+}
+
 @media (max-width: 900px) {
   .status-strip {
     grid-template-columns: 1fr 1fr;
@@ -835,6 +1072,20 @@ dialog::backdrop {
   .comparison-head p {
     margin-top: 6px;
     text-align: left;
+  }
+  .priority-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .priority-card:nth-child(5n),
+  .priority-card:nth-child(n + 6) {
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .priority-card:nth-child(2n) {
+    border-right: 0;
+  }
+  .priority-card:nth-child(n + 9) {
+    border-bottom: 0;
   }
   .sector-row {
     grid-template-columns: minmax(160px, 1.3fr) 2fr 54px 54px;
@@ -863,6 +1114,42 @@ dialog::backdrop {
   }
   .main {
     padding: 12px 12px 22px;
+  }
+  .manifesto-strip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1px;
+    font-size: 12px;
+  }
+  .manifesto-strip .slash {
+    display: none;
+  }
+  .manifesto-strip .issue {
+    margin: 5px 0 0;
+  }
+  .priority-section {
+    padding: 13px;
+  }
+  .priority-heading {
+    display: block;
+  }
+  .priority-heading p {
+    margin-top: 10px;
+  }
+  .priority-grid {
+    grid-template-columns: 1fr;
+  }
+  .priority-card,
+  .priority-card:nth-child(2n),
+  .priority-card:nth-child(5n),
+  .priority-card:nth-child(n + 6),
+  .priority-card:nth-child(n + 9) {
+    min-height: 138px;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .priority-card:last-child {
+    border-bottom: 0;
   }
   .kpi {
     padding: 12px;
