@@ -33,6 +33,10 @@
   --shadow: none;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 *,
 *::before,
 *::after {
@@ -381,6 +385,16 @@ fieldset legend {
   background: transparent;
 }
 
+.search-help {
+  margin: 8px 2px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.search-help strong {
+  color: var(--ink);
+}
+
 kbd {
   padding: 2px 7px;
   border: 1px solid var(--line);
@@ -454,6 +468,7 @@ kbd {
 
 .select-field select {
   min-height: 40px;
+  min-width: 0;
   max-width: 220px;
   padding: 0 34px 0 11px;
   border: 1px solid var(--line);
@@ -527,6 +542,18 @@ kbd {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 10px;
+}
+
+.table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#showAllButton[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--accent-soft);
 }
 
 .result-count {
@@ -1420,6 +1447,7 @@ footer {
     justify-content: space-between;
   }
   .select-field select {
+    width: 0;
     flex: 1;
     max-width: none;
   }
@@ -1434,11 +1462,67 @@ footer {
     align-items: stretch;
     flex-direction: column;
   }
+  .table-actions {
+    flex-direction: column;
+  }
   .export-button {
     width: 100%;
   }
   .pagination {
     justify-content: space-between;
+  }
+  table {
+    min-width: 0;
+  }
+  thead {
+    display: none;
+  }
+  tbody,
+  tbody tr,
+  tbody td {
+    display: block;
+    width: 100%;
+  }
+  tbody tr {
+    content-visibility: visible;
+    contain: none;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody tr:last-child {
+    border-bottom: 0;
+  }
+  tbody td {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 8px;
+    padding: 7px 0;
+    border: 0;
+  }
+  tbody td::before {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    color: var(--muted);
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  tbody td > * {
+    grid-column: 2;
+  }
+  .description strong,
+  .description span {
+    overflow-wrap: anywhere;
+  }
+  .details-button {
+    justify-self: start;
+    min-height: 36px;
+    padding: 0;
+    color: var(--accent-strong);
+    font-size: 14px;
+    font-weight: 700;
   }
   .sector-row {
     grid-template-columns: 1fr 56px 56px;

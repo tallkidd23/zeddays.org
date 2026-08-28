@@ -96,6 +96,8 @@ const elements = {
   itemsTab: $("#itemsTab"),
   compareTab: $("#compareTab"),
   chart: $("#sectorChart"),
+  showAll: $("#showAllButton"),
+  pagination: $("#pagination"),
 };
 
 function escapeHtml(value) {
@@ -111,7 +113,11 @@ function applyFilters() {
   const terms = state.query.toLowerCase().trim().split(/\s+/).filter(Boolean);
   state.filtered = state.rows.filter((row) => {
     const haystack = `${row.hs_code} ${row.full_description} ${row.sector}`.toLowerCase();
-    const queryMatch = terms.every((term) => haystack.includes(term));
+    const compactHaystack = haystack.replace(/[^a-z0-9]/g, "");
+    const queryMatch = terms.every((term) => {
+      const compactTerm = term.replace(/[^a-z0-9]/g, "");
+      return haystack.includes(term) || (compactTerm.length >= 2 && compactHaystack.includes(compactTerm));
+    });
     const sectorMatch = state.sector === "all" || row.sector === state.sector;
     const rateMatch = state.rates.has(row.tariff_rate_pct);
     const fiftyMatch = !state.fiftyOnly || row.tariff_rate_pct === 50;
@@ -128,40 +134,52 @@ function applyFilters() {
     return a.hs_code.localeCompare(b.hs_code);
   });
 
-  const maxPage = Math.max(1, Math.ceil(state.filtered.length / state.pageSize));
+  const activePageSize = state.pageSize === "all" ? Math.max(1, state.filtered.length) : state.pageSize;
+  const maxPage = Math.max(1, Math.ceil(state.filtered.length / activePageSize));
   state.page = Math.min(state.page, maxPage);
   renderTable();
   renderComparison();
 }
 
 function renderTable() {
-  const start = (state.page - 1) * state.pageSize;
-  const pageRows = state.filtered.slice(start, start + state.pageSize);
+  const showingAll = state.pageSize === "all";
+  const pageSize = showingAll ? Math.max(1, state.filtered.length) : state.pageSize;
+  const start = (state.page - 1) * pageSize;
+  const pageRows = state.filtered.slice(start, start + pageSize);
   const fiftyCount = state.filtered.filter((row) => row.tariff_rate_pct === 50).length;
-  elements.count.textContent = `${fmt.format(state.filtered.length)} lines • ${fmt.format(fiftyCount)} at 50%`;
+  const lineLabel = state.filtered.length === 1 ? "line" : "lines";
+  elements.count.textContent = `${fmt.format(state.filtered.length)} ${lineLabel} • ${fmt.format(fiftyCount)} at 50%${showingAll ? " • complete list shown" : ""}`;
   elements.empty.hidden = pageRows.length !== 0;
   elements.body.innerHTML = pageRows
     .map(
       (row) => `
         <tr data-testid="row-tariff-${row.hs_code.replaceAll(".", "-")}">
-          <td><span class="code">${escapeHtml(row.hs_code)}</span></td>
-          <td class="description">
+          <td data-label="HS code"><span class="code">${escapeHtml(row.hs_code)}</span></td>
+          <td class="description" data-label="Description">
             <strong>${escapeHtml(row.heading)}</strong>
             <span>${escapeHtml(row.description || "No narrower description published")}</span>
           </td>
-          <td><span class="sector-badge">${escapeHtml(row.sector)}</span></td>
-          <td><span class="rate-badge ${row.tariff_rate_pct === 50 ? "rate-50" : ""}">${row.tariff_rate_pct}%</span></td>
-          <td><span class="impact">Included in C$27.6B aggregate</span></td>
-          <td><button class="details-button" type="button" data-code="${escapeHtml(row.hs_code)}" aria-label="Open details for ${escapeHtml(row.hs_code)}">→</button></td>
+          <td data-label="Sector"><span class="sector-badge">${escapeHtml(row.sector)}</span></td>
+          <td data-label="Rate"><span class="rate-badge ${row.tariff_rate_pct === 50 ? "rate-50" : ""}">${row.tariff_rate_pct}%</span></td>
+          <td data-label="Trade impact"><span class="impact">Included in C$27.6B aggregate</span></td>
+          <td data-label="Details"><button class="details-button" type="button" data-code="${escapeHtml(row.hs_code)}" aria-label="Open details for ${escapeHtml(row.hs_code)}">Open →</button></td>
         </tr>
       `,
     )
     .join("");
 
-  const pageCount = Math.max(1, Math.ceil(state.filtered.length / state.pageSize));
+  const pageCount = Math.max(1, Math.ceil(state.filtered.length / pageSize));
   elements.pageStatus.textContent = `Page ${state.page} of ${pageCount}`;
   elements.prev.disabled = state.page <= 1;
   elements.next.disabled = state.page >= pageCount;
+  elements.pagination.hidden = showingAll || state.filtered.length <= pageSize;
+  elements.showAll.setAttribute("aria-pressed", String(showingAll));
+  const fullSchedule = state.filtered.length === state.rows.length;
+  elements.showAll.textContent = showingAll
+    ? "Show 24 per page"
+    : fullSchedule
+      ? `Show all ${fmt.format(state.filtered.length)} HS codes`
+      : `Show all ${fmt.format(state.filtered.length)} matches`;
 }
 
 function renderComparison() {
@@ -246,6 +264,7 @@ function resetFilters() {
   state.rates = new Set([15, 25, 50]);
   state.sort = "code-asc";
   state.fiftyOnly = false;
+  state.pageSize = 24;
   state.page = 1;
   elements.search.value = "";
   elements.sector.value = "all";
@@ -355,6 +374,11 @@ $$('input[name="rate"]').forEach((input) =>
 elements.fiftyOnly.addEventListener("click", () => {
   state.fiftyOnly = !state.fiftyOnly;
   elements.fiftyOnly.setAttribute("aria-pressed", String(state.fiftyOnly));
+  state.page = 1;
+  applyFilters();
+});
+elements.showAll.addEventListener("click", () => {
+  state.pageSize = state.pageSize === "all" ? 24 : "all";
   state.page = 1;
   applyFilters();
 });

@@ -183,6 +183,9 @@
               <input id="searchInput" type="search" placeholder="HS code or product description" autocomplete="off" data-testid="input-search" />
               <kbd>/</kbd>
             </label>
+            <p class="search-help">
+              Search a product name such as <strong>furniture</strong>, or enter an HS code with or without periods.
+            </p>
 
             <div class="filter-row">
               <fieldset class="rate-filter">
@@ -216,7 +219,7 @@
 
           <div class="view-tabs" role="tablist" aria-label="Dashboard views">
             <button class="tab is-active" id="itemsTab" role="tab" aria-selected="true" aria-controls="itemsView" data-testid="tab-items">
-              Items
+              Complete HS list
             </button>
             <button class="tab" id="compareTab" role="tab" aria-selected="false" aria-controls="compareView" data-testid="tab-compare">
               Compare sectors
@@ -226,10 +229,15 @@
           <section id="itemsView" class="view" role="tabpanel" aria-labelledby="itemsTab">
             <div class="table-toolbar">
               <p id="resultCount" class="result-count" aria-live="polite" data-testid="text-result-count">Loading tariff lines…</p>
-              <button id="exportButton" class="export-button" type="button" data-testid="button-export">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" /></svg>
-                Export filtered CSV
-              </button>
+              <div class="table-actions">
+                <button id="showAllButton" class="export-button" type="button" aria-pressed="false" data-testid="button-show-all">
+                  Show all 648 HS codes
+                </button>
+                <button id="exportButton" class="export-button" type="button" data-testid="button-export">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" /></svg>
+                  Export filtered CSV
+                </button>
+              </div>
             </div>
 
             <div class="table-wrap">
@@ -254,7 +262,7 @@
               </div>
             </div>
 
-            <nav class="pagination" aria-label="Result pages">
+            <nav id="pagination" class="pagination" aria-label="Result pages">
               <button id="prevButton" class="page-button" type="button" data-testid="button-prev">Previous</button>
               <span id="pageStatus" data-testid="text-page-status">Page 1</span>
               <button id="nextButton" class="page-button" type="button" data-testid="button-next">Next</button>
@@ -304,6 +312,6 @@
       <a class="source-link" href="https://www.canada.ca/en/department-finance/news/2026/08/canada-announces-targeted-countermeasures-and-substantive-support-for-workers-and-businesses-in-response-to-us-tariffs.html" target="_blank" rel="noreferrer">Read the official announcement</a>
     </dialog>
 
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=20260828-2"></script>
   </body>
 </html>
