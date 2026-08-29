@@ -22,8 +22,8 @@ const marketStrings = {
     heroTitle: "Find market day.",
     heroBody: "Search regular farmers’ market days across Southwestern Ontario. Every listing points to an official market or municipal schedule so you can confirm before travelling.",
     editionLabel: "LOCAL EDITION",
-    verifiedMarkets: "VERIFIED MARKETS",
-    checkedDate: "CHECKED 28.08.26",
+    verifiedMarkets: "VERIFIED MARKETS & COUNTING",
+    checkedDate: "CHECKED 29.08.26",
     ruleKicker: "Before you leave",
     ruleTitle: "Confirm today’s schedule.",
     ruleBody: "Market hours can change for weather, holidays and special events. Use this directory as a starting point, then open the official schedule before making the trip.",
@@ -89,8 +89,8 @@ const marketStrings = {
     heroTitle: "Trouvez le jour du marché.",
     heroBody: "Recherchez les jours habituels des marchés fermiers du Sud-Ouest de l’Ontario. Chaque fiche mène à un horaire officiel du marché ou de la municipalité afin de vérifier avant de partir.",
     editionLabel: "ÉDITION LOCALE",
-    verifiedMarkets: "MARCHÉS VÉRIFIÉS",
-    checkedDate: "VÉRIFIÉ LE 28.08.26",
+    verifiedMarkets: "MARCHÉS VÉRIFIÉS ET ÇA CONTINUE",
+    checkedDate: "VÉRIFIÉ LE 29.08.26",
     ruleKicker: "Avant de partir",
     ruleTitle: "Confirmez l’horaire du jour.",
     ruleBody: "Les heures peuvent changer en raison de la météo, des jours fériés et d’événements spéciaux. Utilisez ce répertoire comme point de départ, puis consultez l’horaire officiel avant de vous déplacer.",
@@ -310,7 +310,7 @@ function marketBuildControls() {
   const dayCounts = new Map(weekdays.map((day) => [day, 0]));
   marketState.rows.forEach((row) => normalizedDays(row).forEach((day) => dayCounts.set(day, (dayCounts.get(day) || 0) + 1)));
   marketElements.dayIndex.innerHTML =
-    `<button type="button" data-day="all" aria-pressed="${marketState.day === "all"}">${marketText("all")} <span>${marketState.rows.length}</span></button>` +
+    `<button type="button" data-day="all" aria-pressed="${marketState.day === "all"}">${marketText("all")} <span>60+</span></button>` +
     weekdays.map((day) =>
       `<button type="button" data-day="${day}" aria-pressed="${marketState.day === day}">${translatedDay(day)} <span>${dayCounts.get(day) || 0}</span></button>`
     ).join("");
@@ -412,8 +412,8 @@ fetch("./data/sw-ontario-farmers-markets.json")
   })
   .then((rows) => {
     marketState.rows = rows;
-    marketElements.total.textContent = marketFormat(rows.length);
-    marketElements.statTotal.textContent = marketFormat(rows.length);
+    marketElements.total.textContent = "60+";
+    marketElements.statTotal.textContent = "60+";
     marketElements.communityTotal.textContent = marketFormat(new Set(rows.map((row) => row.city_or_town)).size);
     marketElements.yearRoundTotal.textContent = marketFormat(rows.filter((row) => row.year_round).length);
     marketBuildControls();
