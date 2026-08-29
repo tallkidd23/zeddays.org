@@ -725,9 +725,224 @@ body {
   font-size: 11px;
 }
 
+.market-submit-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(24px, 5vw, 70px);
+  max-width: 1500px;
+  margin: 16px auto 0;
+  padding: clamp(24px, 4vw, 52px);
+  border: 2px solid var(--line);
+  background: var(--surface);
+}
+
+.market-submit-policy h2 {
+  max-width: 10ch;
+  margin-top: 7px;
+  color: var(--accent);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.market-submit-lede {
+  max-width: 58ch;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.market-inclusion-box {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+}
+
+.market-inclusion-box h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.market-inclusion-box ol {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 28px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.market-inclusion-box li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.market-submit-privacy {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.market-submit-privacy strong {
+  color: var(--ink);
+}
+
+.market-submission-form {
+  align-self: start;
+  border: 1px solid var(--line);
+}
+
+.market-form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 14px;
+  color: var(--surface);
+  background: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.market-form-heading strong {
+  color: color-mix(in srgb, var(--surface) 72%, transparent);
+  font-weight: 400;
+}
+
+.market-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px;
+}
+
+.market-form-field {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-width: 0;
+}
+
+.market-form-field > span {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.market-form-field input,
+.market-form-field textarea,
+.market-form-field select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--surface);
+  font: inherit;
+  font-size: 14px;
+}
+
+.market-form-field input {
+  min-height: 44px;
+  padding: 10px 11px;
+}
+
+.market-form-field select {
+  min-height: 44px;
+  padding: 10px 36px 10px 11px;
+}
+
+.market-form-field textarea {
+  resize: vertical;
+  padding: 11px;
+  line-height: 1.45;
+}
+
+.market-form-field input:focus,
+.market-form-field textarea:focus,
+.market-form-field select:focus {
+  outline: 3px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  border-color: var(--accent);
+}
+
+.market-form-field input:user-invalid,
+.market-form-field textarea:user-invalid {
+  border-color: var(--accent);
+}
+
+.market-form-field small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.market-form-wide {
+  grid-column: 1 / -1;
+}
+
+.market-form-consent {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  margin: 0 18px;
+  padding: 14px 0;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.market-form-consent input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.market-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 18px 18px;
+}
+
+.market-submit-button {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.market-submission-status {
+  min-height: 0;
+  margin: 0 18px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.market-submission-status:not(:empty) {
+  margin-bottom: 18px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+}
+
+.market-submission-status[data-state="success"] {
+  border-left-color: #287a45;
+}
+
 @media (max-width: 1050px) {
   .market-results {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .market-submit-section {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -830,6 +1045,20 @@ body {
 
   .market-entry-facts {
     grid-template-columns: 1fr;
+  }
+
+  .market-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .market-form-wide {
+    grid-column: auto;
+  }
+
+  .market-form-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .market-entry-facts div:nth-child(even) {
@@ -1131,6 +1360,35 @@ fieldset legend {
 .text-button {
   width: auto;
   padding: 0 14px;
+}
+
+.top-support-button {
+  width: auto;
+  padding: 0 12px;
+  border-color: var(--accent);
+  color: var(--surface);
+  background: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.top-support-button:hover,
+.top-support-button:focus-visible {
+  border-color: var(--ink);
+  color: var(--surface);
+  background: var(--ink);
+}
+
+.form-jump-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .icon-button:hover,
@@ -2543,8 +2801,18 @@ footer {
 
 @media (max-width: 620px) {
   .topbar {
+    flex-wrap: wrap;
+    gap: 8px 12px;
     min-height: 68px;
     padding: 10px 14px;
+  }
+  .top-actions {
+    margin-left: auto;
+  }
+  .top-support-button {
+    min-height: 40px;
+    padding: 0 9px;
+    font-size: 10px;
   }
   .brand-mark {
     width: 30px;

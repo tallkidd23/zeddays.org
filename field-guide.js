@@ -17,6 +17,7 @@ const guideStrings = {
     mastheadKicker: "Canadian-made reference // edition 01",
     mastheadTitle: "The Canadian field guide",
     tariffsLink: "Tariffs",
+    supportNav: "Support",
     heroKicker: "Carry it. Search it. Check the label.",
     heroTitle: "300 things still made here.",
     heroBody: "A source-checked directory of products manufactured, grown, processed, assembled or built in Canada. Every listing connects a practical Canadian choice to a tariff-affected product sector.",
@@ -41,6 +42,7 @@ const guideStrings = {
     sort: "Sort",
     downloadCsv: "Download CSV",
     printGuide: "Print field guide",
+    productSubmitLink: "Submit a product",
     evidenceNote: "Official-source evidence opens in a new tab.",
     emptyTitle: "No field-guide entries match",
     emptyBody: "Try a broader product word or return to all sectors.",
@@ -92,12 +94,59 @@ const guideStrings = {
     themeLabel: "Switch colour theme",
     sectorNavLabel: "Browse field-guide sectors",
     resultsLabel: "Canadian-made product entries",
+    productSubmitKicker: "Help expand the catalogue",
+    productSubmitTitle: "Submit a brand or product.",
+    productSubmitIntro: "Suggest a Canadian-made product for independent research. Every accepted entry is fully vetted before it appears in the 300+ catalogue.",
+    productVettingTitle: "The publication standard",
+    productVettingOne: "Requests are free. Contributions, advertising and business relationships never buy inclusion or placement.",
+    productVettingTwo: "Submit a specific product or product line. A Canadian head office, owner or maple leaf alone is not proof that it is made here.",
+    productVettingThree: "An official public source must explicitly confirm that the named product is manufactured, grown, processed, assembled or built in Canada.",
+    productVettingFour: "ZED DAYS independently checks the source, manufacturing location, product scope and relevant origin caveats before publication.",
+    productVettingFive: "Submitted descriptions are research leads, not ready-made listings. ZED DAYS writes and sources the final entry independently.",
+    productVettingSix: "Submission does not guarantee inclusion. Entries may be corrected or removed when evidence or production changes.",
+    productPrivacyLabel: "Privacy:",
+    productPrivacyBody: "This form does not store or transmit information through the website. It prepares an email in your own mail application.",
+    productFormStep: "CATALOGUE INTAKE // 01",
+    productRequiredNote: "Required fields are marked *",
+    productBrandName: "Brand or company *",
+    productName: "Specific product or line *",
+    productCategory: "Product category *",
+    productCategoryPlaceholder: "e.g. cookware, cereal or work boots",
+    productMadeWhere: "Where is it made in Canada? *",
+    productMadeWherePlaceholder: "City and province, if known",
+    productOriginClaim: "Exact Canadian-production claim *",
+    productOriginClaimPlaceholder: "Quote the wording used by the manufacturer",
+    productEvidenceUrl: "Official evidence webpage *",
+    productUrlPlaceholder: "https://",
+    productEvidenceHelp: "Link directly to the manufacturer or another authoritative page that confirms Canadian production for this product.",
+    productPageUrl: "Product webpage",
+    productContactName: "Your name *",
+    productContactEmail: "Your email *",
+    productRelationship: "Your relationship to the product *",
+    productRelationshipChoose: "Choose one",
+    productRelationshipCustomer: "Customer or community member",
+    productRelationshipBrand: "Brand owner or employee",
+    productRelationshipRetailer: "Retailer or distributor",
+    productRelationshipOther: "Other",
+    productCaveats: "Known imported ingredients, components or origin caveats",
+    productCaveatsPlaceholder: "Disclose anything that could affect the Canadian-made claim",
+    productNotes: "Additional evidence or notes",
+    productConsentText: "I confirm this is a research suggestion, that the information is accurate to the best of my knowledge, and that publication depends on independent ZED DAYS verification. *",
+    productEmailButton: "Prepare research submission",
+    productCopyButton: "Copy details",
+    productFormInvalid: "Please complete every required field and enter a valid email and official webpage.",
+    productFormEmailReady: "Your email application should open with the research submission prepared. Review it, then send when ready.",
+    productFormCopied: "Research details copied. Paste them into an email to thezeddays@gmail.com.",
+    productFormCopyFailed: "Copying was blocked by the browser. Use “Prepare research submission” instead.",
+    productSubmissionSubject: "Brand or product research submission for ZED DAYS",
+    productSubmissionLanguage: "Submission language",
   },
   fr: {
     skip: "Passer aux entrées du guide",
     mastheadKicker: "Référence fabriquée au Canada // édition 01",
     mastheadTitle: "Le guide canadien",
     tariffsLink: "Tarifs",
+    supportNav: "Soutenir",
     heroKicker: "Emportez-le. Cherchez. Vérifiez l’étiquette.",
     heroTitle: "300 produits encore fabriqués ici.",
     heroBody: "Un répertoire vérifié de produits fabriqués, cultivés, transformés, assemblés ou construits au Canada. Chaque fiche relie un choix canadien concret à un secteur touché par les tarifs.",
@@ -122,6 +171,7 @@ const guideStrings = {
     sort: "Trier",
     downloadCsv: "Télécharger le CSV",
     printGuide: "Imprimer le guide",
+    productSubmitLink: "Proposer un produit",
     evidenceNote: "La preuve officielle s’ouvre dans un nouvel onglet.",
     emptyTitle: "Aucune entrée ne correspond",
     emptyBody: "Essayez un terme plus général ou revenez à tous les secteurs.",
@@ -173,6 +223,52 @@ const guideStrings = {
     themeLabel: "Changer le thème de couleur",
     sectorNavLabel: "Parcourir les secteurs du guide",
     resultsLabel: "Produits fabriqués au Canada",
+    productSubmitKicker: "Aidez le catalogue à grandir",
+    productSubmitTitle: "Proposer une marque ou un produit.",
+    productSubmitIntro: "Suggérez un produit fabriqué au Canada pour une recherche indépendante. Chaque fiche acceptée est entièrement vérifiée avant de paraître dans le catalogue de plus de 300 produits.",
+    productVettingTitle: "La norme de publication",
+    productVettingOne: "Les demandes sont gratuites. Les contributions, la publicité et les relations commerciales n’achètent jamais une inclusion ou un placement.",
+    productVettingTwo: "Proposez un produit ou une gamme précise. Un siège social canadien, un propriétaire canadien ou une feuille d’érable ne prouve pas à lui seul que le produit est fabriqué ici.",
+    productVettingThree: "Une source officielle publique doit confirmer explicitement que le produit nommé est fabriqué, cultivé, transformé, assemblé ou construit au Canada.",
+    productVettingFour: "Avant publication, ZED DAYS vérifie indépendamment la source, le lieu de fabrication, la portée du produit et les réserves pertinentes sur l’origine.",
+    productVettingFive: "Les descriptions soumises sont des pistes de recherche, pas des fiches prêtes à publier. ZED DAYS rédige et source la fiche finale indépendamment.",
+    productVettingSix: "Une demande ne garantit pas l’inclusion. Une fiche peut être corrigée ou retirée lorsque les preuves ou la production changent.",
+    productPrivacyLabel: "Confidentialité :",
+    productPrivacyBody: "Ce formulaire ne stocke ni ne transmet vos renseignements par le site. Il prépare un courriel dans votre propre application de messagerie.",
+    productFormStep: "FICHE DU CATALOGUE // 01",
+    productRequiredNote: "Les champs obligatoires sont marqués *",
+    productBrandName: "Marque ou entreprise *",
+    productName: "Produit ou gamme précise *",
+    productCategory: "Catégorie de produit *",
+    productCategoryPlaceholder: "p. ex. batterie de cuisine, céréales ou bottes de travail",
+    productMadeWhere: "Où est-il fabriqué au Canada? *",
+    productMadeWherePlaceholder: "Ville et province, si connues",
+    productOriginClaim: "Mention exacte de production canadienne *",
+    productOriginClaimPlaceholder: "Citez les mots employés par le fabricant",
+    productEvidenceUrl: "Page officielle servant de preuve *",
+    productUrlPlaceholder: "https://",
+    productEvidenceHelp: "Ajoutez un lien direct vers le fabricant ou une autre page faisant autorité qui confirme la production canadienne de ce produit.",
+    productPageUrl: "Page du produit",
+    productContactName: "Votre nom *",
+    productContactEmail: "Votre courriel *",
+    productRelationship: "Votre relation avec le produit *",
+    productRelationshipChoose: "Choisissez une option",
+    productRelationshipCustomer: "Client ou membre de la communauté",
+    productRelationshipBrand: "Propriétaire ou employé de la marque",
+    productRelationshipRetailer: "Détaillant ou distributeur",
+    productRelationshipOther: "Autre",
+    productCaveats: "Ingrédients ou composants importés et réserves connues sur l’origine",
+    productCaveatsPlaceholder: "Indiquez tout élément pouvant nuancer la mention de fabrication canadienne",
+    productNotes: "Preuves ou notes supplémentaires",
+    productConsentText: "Je confirme qu’il s’agit d’une suggestion de recherche, que les renseignements sont exacts au meilleur de ma connaissance et que la publication dépend d’une vérification indépendante par ZED DAYS. *",
+    productEmailButton: "Préparer la proposition",
+    productCopyButton: "Copier les détails",
+    productFormInvalid: "Veuillez remplir tous les champs obligatoires et saisir un courriel et une page officielle valides.",
+    productFormEmailReady: "Votre application de messagerie devrait s’ouvrir avec la proposition préparée. Vérifiez-la, puis envoyez-la lorsque vous êtes prêt.",
+    productFormCopied: "Détails copiés. Collez-les dans un courriel à thezeddays@gmail.com.",
+    productFormCopyFailed: "Le navigateur a bloqué la copie. Utilisez plutôt « Préparer la proposition ».",
+    productSubmissionSubject: "Proposition de recherche sur une marque ou un produit pour ZED DAYS",
+    productSubmissionLanguage: "Langue de la demande",
   },
 };
 
@@ -395,6 +491,10 @@ function guideLocalizeStatic() {
   guideElements.sort.value = guideState.sort;
   guide$("#guideLanguageEnglish").setAttribute("aria-pressed", String(guideState.language === "en"));
   guide$("#guideLanguageFrench").setAttribute("aria-pressed", String(guideState.language === "fr"));
+  const submissionStatus = guide$("#productSubmissionStatus");
+  if (submissionStatus?.dataset.statusKey) {
+    submissionStatus.textContent = guideText(submissionStatus.dataset.statusKey);
+  }
 }
 
 function guideSetLanguage(language) {
@@ -404,6 +504,98 @@ function guideSetLanguage(language) {
     guideBuildSectorControls();
     guideElements.sector.value = guideState.sector;
     guideApplyFilters();
+  }
+}
+
+function guideProductSubmissionBody() {
+  const form = guide$("#productSubmissionForm");
+  const data = new FormData(form);
+  const relationship = guide$("#productRelationship").selectedOptions[0]?.textContent || "—";
+  const labels = guideState.language === "fr"
+    ? [
+        ["Marque ou entreprise", "brandName"],
+        ["Produit ou gamme précise", "productName"],
+        ["Catégorie", "category"],
+        ["Lieu de fabrication au Canada", "madeWhere"],
+        ["Mention exacte de production canadienne", "originClaim"],
+        ["Page officielle servant de preuve", "evidenceUrl"],
+        ["Page du produit", "productUrl"],
+        ["Nom de la personne-ressource", "contactName"],
+        ["Courriel", "contactEmail"],
+        ["Réserves connues sur l’origine", "caveats"],
+        ["Notes supplémentaires", "notes"],
+      ]
+    : [
+        ["Brand or company", "brandName"],
+        ["Specific product or line", "productName"],
+        ["Category", "category"],
+        ["Canadian manufacturing location", "madeWhere"],
+        ["Exact Canadian-production claim", "originClaim"],
+        ["Official evidence webpage", "evidenceUrl"],
+        ["Product webpage", "productUrl"],
+        ["Contact name", "contactName"],
+        ["Contact email", "contactEmail"],
+        ["Known origin caveats", "caveats"],
+        ["Additional notes", "notes"],
+      ];
+  const lines = [
+    "ZED DAYS — BRAND / PRODUCT RESEARCH SUBMISSION",
+    "",
+    `${guideText("productSubmissionLanguage")}: ${guideState.language === "fr" ? "Français" : "English"}`,
+    "",
+  ];
+  labels.forEach(([label, key]) => {
+    lines.push(`${label}: ${String(data.get(key) || "").trim() || "—"}`);
+  });
+  lines.splice(lines.length - 2, 0, `${guideText("productRelationship").replace(" *", "")}: ${relationship}`);
+  lines.push("", guideText("productConsentText").replace(" *", ""));
+  return lines.join("\n");
+}
+
+function guideValidateProductSubmission() {
+  const form = guide$("#productSubmissionForm");
+  const status = guide$("#productSubmissionStatus");
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    status.textContent = guideText("productFormInvalid");
+    status.dataset.statusKey = "productFormInvalid";
+    status.dataset.state = "error";
+    return false;
+  }
+  status.textContent = "";
+  status.dataset.statusKey = "";
+  status.dataset.state = "";
+  return true;
+}
+
+function guidePrepareProductEmail(event) {
+  event.preventDefault();
+  if (!guideValidateProductSubmission()) return;
+  const subject =
+    `${guideText("productSubmissionSubject")}: ` +
+    `${guide$("#productBrandName").value.trim()} — ${guide$("#productName").value.trim()}`;
+  const mailto =
+    `mailto:thezeddays@gmail.com?subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(guideProductSubmissionBody())}`;
+  const status = guide$("#productSubmissionStatus");
+  status.textContent = guideText("productFormEmailReady");
+  status.dataset.statusKey = "productFormEmailReady";
+  status.dataset.state = "success";
+  window.location.href = mailto;
+}
+
+async function guideCopyProductSubmission() {
+  if (!guideValidateProductSubmission()) return;
+  const status = guide$("#productSubmissionStatus");
+  try {
+    await navigator.clipboard.writeText(guideProductSubmissionBody());
+    status.textContent = guideText("productFormCopied");
+    status.dataset.statusKey = "productFormCopied";
+    status.dataset.state = "success";
+  } catch {
+    status.textContent = guideText("productFormCopyFailed");
+    status.dataset.statusKey = "productFormCopyFailed";
+    status.dataset.state = "error";
   }
 }
 
@@ -457,8 +649,13 @@ guide$("#guideThemeButton").addEventListener("click", () => {
 });
 guide$("#guideLanguageEnglish").addEventListener("click", () => guideSetLanguage("en"));
 guide$("#guideLanguageFrench").addEventListener("click", () => guideSetLanguage("fr"));
+guide$("#productSubmissionForm").addEventListener("submit", guidePrepareProductEmail);
+guide$("#productCopySubmission").addEventListener("click", guideCopyProductSubmission);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "/" && document.activeElement !== guideElements.search) {
+  const target = event.target;
+  const isTyping = target instanceof HTMLElement &&
+    (target.matches("input, textarea, select") || target.isContentEditable);
+  if (event.key === "/" && !isTyping) {
     event.preventDefault();
     guideElements.search.focus();
   }

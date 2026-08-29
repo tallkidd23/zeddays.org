@@ -18,6 +18,7 @@ const marketStrings = {
     mastheadKicker: "Local food reference // Southwestern Ontario",
     mastheadTitle: "Market day finder",
     guideLink: "Products",
+    supportNav: "Support",
     heroKicker: "Choose a community. Find the day. Meet the growers.",
     heroTitle: "Find market day.",
     heroBody: "Search regular farmers’ market days across Southwestern Ontario. Every listing points to an official market or municipal schedule so you can confirm before travelling.",
@@ -47,6 +48,7 @@ const marketStrings = {
     seasonal: "Seasonal",
     weekend: "This weekend",
     downloadCsv: "Download CSV",
+    submitLink: "Submit a market",
     evidenceNote: "Official schedules open in a new tab.",
     emptyTitle: "No markets match",
     emptyBody: "Try a nearby community, another day, or reset the filters.",
@@ -79,12 +81,54 @@ const marketStrings = {
     themeLabel: "Switch colour theme",
     dayNavLabel: "Browse markets by day",
     resultsLabel: "Southwestern Ontario farmers’ markets",
+    submitKicker: "Help grow the directory",
+    submitTitle: "Submit a market.",
+    submitIntro: "Know a recurring farmers’ market in Southwestern Ontario that is missing? Send the details for independent review. There is no fee to request a listing.",
+    inclusionTitle: "How inclusion works",
+    inclusionOne: "Requests are free. ZED DAYS does not sell listings or preferred placement.",
+    inclusionTwo: "The market should be a recurring public market in Southwestern Ontario with local farm or food producers.",
+    inclusionThree: "A current official market, organizer, municipal or association page must confirm the schedule.",
+    inclusionFour: "ZED DAYS reviews every request independently and may ask for clarification before publishing.",
+    inclusionFive: "Submission does not guarantee inclusion. Listings may be updated or removed when schedules become outdated.",
+    inclusionSix: "This form is for markets as organizations. Individual vendor applications are not accepted yet.",
+    privacyLabel: "Privacy:",
+    privacyBody: "This form does not store or transmit information through the website. It prepares an email in your own mail application.",
+    formStep: "MARKET INTAKE // 01",
+    requiredNote: "Required fields are marked *",
+    formMarketName: "Market name *",
+    formCommunity: "Town or city *",
+    formRegion: "County or region",
+    formAddress: "Market address *",
+    formDays: "Regular market day(s) *",
+    formDaysPlaceholder: "e.g. Saturdays",
+    formHours: "Opening hours *",
+    formHoursPlaceholder: "e.g. 8 a.m. – 1 p.m.",
+    formSeason: "Season or operating dates *",
+    formSeasonPlaceholder: "e.g. May 16 – October 10, 2026, or year-round",
+    formOfficialUrl: "Official schedule webpage *",
+    formUrlPlaceholder: "https://",
+    formUrlHelp: "Use the market, organizer, municipal or association page that publishes the current schedule.",
+    formContactName: "Your name *",
+    formContactEmail: "Your email *",
+    formProducts: "Products typically available",
+    formProductsPlaceholder: "e.g. produce, preserves, meat, bread and flowers",
+    formNotes: "Anything else ZED DAYS should know?",
+    formConsent: "I confirm these details are accurate to the best of my knowledge and may be reviewed for a public listing. *",
+    formEmailButton: "Prepare submission email",
+    formCopyButton: "Copy details",
+    formInvalid: "Please complete every required field and enter a valid email and official webpage.",
+    formEmailReady: "Your email application should open with the submission prepared. Review it, then send when ready.",
+    formCopied: "Submission details copied. Paste them into an email to thezeddays@gmail.com.",
+    formCopyFailed: "Copying was blocked by the browser. Use “Prepare submission email” instead.",
+    submissionSubject: "Market submission for ZED DAYS",
+    submissionLanguage: "Submission language",
   },
   fr: {
     skip: "Passer aux marchés",
     mastheadKicker: "Répertoire alimentaire local // Sud-Ouest de l’Ontario",
     mastheadTitle: "Trouver un jour de marché",
     guideLink: "Produits",
+    supportNav: "Soutenir",
     heroKicker: "Choisissez une communauté. Trouvez le jour. Rencontrez les producteurs.",
     heroTitle: "Trouvez le jour du marché.",
     heroBody: "Recherchez les jours habituels des marchés fermiers du Sud-Ouest de l’Ontario. Chaque fiche mène à un horaire officiel du marché ou de la municipalité afin de vérifier avant de partir.",
@@ -114,6 +158,7 @@ const marketStrings = {
     seasonal: "Saisonnier",
     weekend: "Cette fin de semaine",
     downloadCsv: "Télécharger le CSV",
+    submitLink: "Proposer un marché",
     evidenceNote: "Les horaires officiels s’ouvrent dans un nouvel onglet.",
     emptyTitle: "Aucun marché ne correspond",
     emptyBody: "Essayez une communauté voisine, un autre jour ou réinitialisez les filtres.",
@@ -146,6 +191,47 @@ const marketStrings = {
     themeLabel: "Changer le thème de couleur",
     dayNavLabel: "Parcourir les marchés par jour",
     resultsLabel: "Marchés fermiers du Sud-Ouest de l’Ontario",
+    submitKicker: "Aidez le répertoire à grandir",
+    submitTitle: "Proposer un marché.",
+    submitIntro: "Connaissez-vous un marché fermier récurrent du Sud-Ouest de l’Ontario qui manque au répertoire? Envoyez les renseignements pour une vérification indépendante. La demande d’inscription est gratuite.",
+    inclusionTitle: "Fonctionnement de l’inclusion",
+    inclusionOne: "Les demandes sont gratuites. ZED DAYS ne vend ni fiches ni placement préférentiel.",
+    inclusionTwo: "Le marché doit être un marché public récurrent du Sud-Ouest de l’Ontario réunissant des producteurs agricoles ou alimentaires locaux.",
+    inclusionThree: "Une page actuelle du marché, de l’organisateur, de la municipalité ou d’une association doit confirmer l’horaire.",
+    inclusionFour: "ZED DAYS examine chaque demande indépendamment et peut demander des précisions avant la publication.",
+    inclusionFive: "Une demande ne garantit pas l’inclusion. Une fiche peut être mise à jour ou retirée lorsque son horaire devient périmé.",
+    inclusionSix: "Ce formulaire s’adresse aux marchés comme organisations. Les demandes de vendeurs individuels ne sont pas encore acceptées.",
+    privacyLabel: "Confidentialité :",
+    privacyBody: "Ce formulaire ne stocke ni ne transmet vos renseignements par le site. Il prépare un courriel dans votre propre application de messagerie.",
+    formStep: "FICHE DU MARCHÉ // 01",
+    requiredNote: "Les champs obligatoires sont marqués *",
+    formMarketName: "Nom du marché *",
+    formCommunity: "Ville ou municipalité *",
+    formRegion: "Comté ou région",
+    formAddress: "Adresse du marché *",
+    formDays: "Jour(s) habituel(s) du marché *",
+    formDaysPlaceholder: "p. ex. les samedis",
+    formHours: "Heures d’ouverture *",
+    formHoursPlaceholder: "p. ex. de 8 h à 13 h",
+    formSeason: "Saison ou dates d’ouverture *",
+    formSeasonPlaceholder: "p. ex. du 16 mai au 10 octobre 2026, ou à l’année",
+    formOfficialUrl: "Page officielle de l’horaire *",
+    formUrlPlaceholder: "https://",
+    formUrlHelp: "Utilisez la page du marché, de l’organisateur, de la municipalité ou d’une association qui publie l’horaire actuel.",
+    formContactName: "Votre nom *",
+    formContactEmail: "Votre courriel *",
+    formProducts: "Produits habituellement offerts",
+    formProductsPlaceholder: "p. ex. fruits et légumes, conserves, viande, pain et fleurs",
+    formNotes: "Autre renseignement utile pour ZED DAYS?",
+    formConsent: "Je confirme que ces renseignements sont exacts au meilleur de ma connaissance et qu’ils peuvent être vérifiés pour une fiche publique. *",
+    formEmailButton: "Préparer le courriel",
+    formCopyButton: "Copier les détails",
+    formInvalid: "Veuillez remplir tous les champs obligatoires et saisir un courriel et une page officielle valides.",
+    formEmailReady: "Votre application de messagerie devrait s’ouvrir avec la demande préparée. Vérifiez-la, puis envoyez-la lorsque vous êtes prêt.",
+    formCopied: "Détails copiés. Collez-les dans un courriel à thezeddays@gmail.com.",
+    formCopyFailed: "Le navigateur a bloqué la copie. Utilisez plutôt « Préparer le courriel ».",
+    submissionSubject: "Proposition de marché pour ZED DAYS",
+    submissionLanguage: "Langue de la demande",
   },
 };
 
@@ -338,6 +424,10 @@ function marketLocalize() {
   marketElements.results.setAttribute("aria-label", marketText("resultsLabel"));
   market$("#marketLanguageEnglish").setAttribute("aria-pressed", String(marketState.language === "en"));
   market$("#marketLanguageFrench").setAttribute("aria-pressed", String(marketState.language === "fr"));
+  const submissionStatus = market$("#marketSubmissionStatus");
+  if (submissionStatus?.dataset.statusKey) {
+    submissionStatus.textContent = marketText(submissionStatus.dataset.statusKey);
+  }
   if (marketState.rows.length) marketBuildControls();
 }
 
@@ -357,6 +447,94 @@ function marketReset() {
   marketElements.weekend.setAttribute("aria-pressed", "false");
   marketBuildControls();
   marketApplyFilters();
+}
+
+function marketSubmissionBody() {
+  const form = market$("#marketSubmissionForm");
+  const data = new FormData(form);
+  const labels = marketState.language === "fr"
+    ? [
+        ["Nom du marché", "marketName"],
+        ["Ville ou municipalité", "community"],
+        ["Comté ou région", "region"],
+        ["Adresse", "address"],
+        ["Jour(s) du marché", "days"],
+        ["Heures", "hours"],
+        ["Saison ou dates", "season"],
+        ["Page officielle", "officialUrl"],
+        ["Nom de la personne-ressource", "contactName"],
+        ["Courriel", "contactEmail"],
+        ["Produits habituellement offerts", "products"],
+        ["Notes", "notes"],
+      ]
+    : [
+        ["Market name", "marketName"],
+        ["Town or city", "community"],
+        ["County or region", "region"],
+        ["Address", "address"],
+        ["Market day(s)", "days"],
+        ["Hours", "hours"],
+        ["Season or dates", "season"],
+        ["Official schedule page", "officialUrl"],
+        ["Contact name", "contactName"],
+        ["Contact email", "contactEmail"],
+        ["Products typically available", "products"],
+        ["Notes", "notes"],
+      ];
+  const lines = [
+    "ZED DAYS — SUBMIT A MARKET",
+    "",
+    `${marketText("submissionLanguage")}: ${marketState.language === "fr" ? "Français" : "English"}`,
+    "",
+  ];
+  labels.forEach(([label, key]) => {
+    lines.push(`${label}: ${String(data.get(key) || "").trim() || "—"}`);
+  });
+  lines.push("", marketText("formConsent").replace(" *", ""));
+  return lines.join("\n");
+}
+
+function marketValidateSubmission() {
+  const form = market$("#marketSubmissionForm");
+  const status = market$("#marketSubmissionStatus");
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    status.textContent = marketText("formInvalid");
+    status.dataset.statusKey = "formInvalid";
+    status.dataset.state = "error";
+    return false;
+  }
+  status.textContent = "";
+  status.dataset.statusKey = "";
+  status.dataset.state = "";
+  return true;
+}
+
+function marketPrepareSubmissionEmail(event) {
+  event.preventDefault();
+  if (!marketValidateSubmission()) return;
+  const subject = `${marketText("submissionSubject")}: ${market$("#submissionMarketName").value.trim()}`;
+  const mailto = `mailto:thezeddays@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(marketSubmissionBody())}`;
+  const status = market$("#marketSubmissionStatus");
+  status.textContent = marketText("formEmailReady");
+  status.dataset.statusKey = "formEmailReady";
+  status.dataset.state = "success";
+  window.location.href = mailto;
+}
+
+async function marketCopySubmission() {
+  if (!marketValidateSubmission()) return;
+  const status = market$("#marketSubmissionStatus");
+  try {
+    await navigator.clipboard.writeText(marketSubmissionBody());
+    status.textContent = marketText("formCopied");
+    status.dataset.statusKey = "formCopied";
+    status.dataset.state = "success";
+  } catch {
+    status.textContent = marketText("formCopyFailed");
+    status.dataset.statusKey = "formCopyFailed";
+    status.dataset.state = "error";
+  }
 }
 
 marketElements.search.addEventListener("input", (event) => {
@@ -396,8 +574,13 @@ market$("#marketThemeButton").addEventListener("click", () => {
 });
 market$("#marketLanguageEnglish").addEventListener("click", () => marketSetLanguage("en"));
 market$("#marketLanguageFrench").addEventListener("click", () => marketSetLanguage("fr"));
+market$("#marketSubmissionForm").addEventListener("submit", marketPrepareSubmissionEmail);
+market$("#marketCopySubmission").addEventListener("click", marketCopySubmission);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "/" && document.activeElement !== marketElements.search) {
+  const target = event.target;
+  const isTyping = target instanceof HTMLElement &&
+    (target.matches("input, textarea, select") || target.isContentEditable);
+  if (event.key === "/" && !isTyping) {
     event.preventDefault();
     marketElements.search.focus();
   }

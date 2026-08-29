@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260828-2" />
+    <link rel="stylesheet" href="./styles.css?v=20260829-3" />
   </head>
   <body class="field-guide-page market-page">
     <a class="skip-link" href="#marketResults" data-i18n="skip">Skip to market listings</a>
@@ -38,6 +38,13 @@
             <button id="marketLanguageEnglish" type="button" aria-pressed="true">EN</button>
             <button id="marketLanguageFrench" type="button" aria-pressed="false">FR</button>
           </div>
+          <a
+            class="icon-button top-support-button"
+            href="https://fnd.us/thezeddays/pay"
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="supportNav"
+          >Support</a>
           <a class="icon-button text-button guide-home-link" href="./field-guide.html" data-i18n="guideLink">Products</a>
           <button
             id="marketThemeButton"
@@ -158,6 +165,7 @@
                 <span data-i18n="weekend">This weekend</span>
               </button>
               <div class="guide-actions">
+                <a class="quiet-button form-jump-link" href="#submitMarket" data-i18n="submitLink">Submit a market</a>
                 <a
                   class="export-button"
                   href="./data/sw-ontario-farmers-markets.csv"
@@ -186,6 +194,119 @@
           </div>
         </section>
 
+        <section id="submitMarket" class="market-submit-section" aria-labelledby="submitMarketTitle">
+          <div class="market-submit-policy">
+            <span class="eyebrow" data-i18n="submitKicker">Help grow the directory</span>
+            <h2 id="submitMarketTitle" data-i18n="submitTitle">Submit a market.</h2>
+            <p class="market-submit-lede" data-i18n="submitIntro">
+              Know a recurring farmers’ market in Southwestern Ontario that is missing? Send the details for
+              independent review. There is no fee to request a listing.
+            </p>
+
+            <div class="market-inclusion-box">
+              <h3 data-i18n="inclusionTitle">How inclusion works</h3>
+              <ol>
+                <li data-i18n="inclusionOne">Requests are free. ZED DAYS does not sell listings or preferred placement.</li>
+                <li data-i18n="inclusionTwo">The market should be a recurring public market in Southwestern Ontario with local farm or food producers.</li>
+                <li data-i18n="inclusionThree">A current official market, organizer, municipal or association page must confirm the schedule.</li>
+                <li data-i18n="inclusionFour">ZED DAYS reviews every request independently and may ask for clarification before publishing.</li>
+                <li data-i18n="inclusionFive">Submission does not guarantee inclusion. Listings may be updated or removed when schedules become outdated.</li>
+                <li data-i18n="inclusionSix">This form is for markets as organizations. Individual vendor applications are not accepted yet.</li>
+              </ol>
+            </div>
+
+            <p class="market-submit-privacy">
+              <strong data-i18n="privacyLabel">Privacy:</strong>
+              <span data-i18n="privacyBody">This form does not store or transmit information through the website. It prepares an email in your own mail application.</span>
+            </p>
+          </div>
+
+          <form id="marketSubmissionForm" class="market-submission-form" novalidate>
+            <div class="market-form-heading">
+              <span data-i18n="formStep">MARKET INTAKE // 01</span>
+              <strong data-i18n="requiredNote">Required fields are marked *</strong>
+            </div>
+
+            <div class="market-form-grid">
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="formMarketName">Market name *</span>
+                <input id="submissionMarketName" name="marketName" type="text" autocomplete="organization" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="formCommunity">Town or city *</span>
+                <input id="submissionCommunity" name="community" type="text" autocomplete="address-level2" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="formRegion">County or region</span>
+                <input id="submissionRegion" name="region" type="text" autocomplete="address-level1" />
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="formAddress">Market address *</span>
+                <input id="submissionAddress" name="address" type="text" autocomplete="street-address" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="formDays">Regular market day(s) *</span>
+                <input id="submissionDays" name="days" type="text" placeholder="e.g. Saturdays" data-i18n-placeholder="formDaysPlaceholder" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="formHours">Opening hours *</span>
+                <input id="submissionHours" name="hours" type="text" placeholder="e.g. 8 a.m. – 1 p.m." data-i18n-placeholder="formHoursPlaceholder" required />
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="formSeason">Season or operating dates *</span>
+                <input id="submissionSeason" name="season" type="text" placeholder="e.g. May 16 – October 10, 2026, or year-round" data-i18n-placeholder="formSeasonPlaceholder" required />
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="formOfficialUrl">Official schedule webpage *</span>
+                <input id="submissionOfficialUrl" name="officialUrl" type="url" inputmode="url" placeholder="https://" data-i18n-placeholder="formUrlPlaceholder" required />
+                <small data-i18n="formUrlHelp">Use the market, organizer, municipal or association page that publishes the current schedule.</small>
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="formContactName">Your name *</span>
+                <input id="submissionContactName" name="contactName" type="text" autocomplete="name" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="formContactEmail">Your email *</span>
+                <input id="submissionContactEmail" name="contactEmail" type="email" autocomplete="email" required />
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="formProducts">Products typically available</span>
+                <textarea id="submissionProducts" name="products" rows="3" placeholder="e.g. produce, preserves, meat, bread and flowers" data-i18n-placeholder="formProductsPlaceholder"></textarea>
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="formNotes">Anything else ZED DAYS should know?</span>
+                <textarea id="submissionNotes" name="notes" rows="3"></textarea>
+              </label>
+            </div>
+
+            <label class="market-form-consent">
+              <input id="submissionConsent" name="consent" type="checkbox" required />
+              <span data-i18n="formConsent">I confirm these details are accurate to the best of my knowledge and may be reviewed for a public listing. *</span>
+            </label>
+
+            <div class="market-form-actions">
+              <button class="export-button market-submit-button" type="submit" data-testid="button-submit-market">
+                <span data-i18n="formEmailButton">Prepare submission email</span>
+              </button>
+              <button id="marketCopySubmission" class="quiet-button" type="button" data-testid="button-copy-market-submission">
+                <span data-i18n="formCopyButton">Copy details</span>
+              </button>
+            </div>
+            <p id="marketSubmissionStatus" class="market-submission-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
         <aside class="guide-disclosure">
           <strong data-i18n="fieldNoteLabel">Field note:</strong>
           <span data-i18n="fieldNoteBody">
@@ -202,6 +323,6 @@
       </main>
     </div>
 
-    <script src="./markets.js?v=20260829-2" defer></script>
+    <script src="./markets.js?v=20260829-3" defer></script>
   </body>
 </html>

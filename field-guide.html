@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260828-2" />
+    <link rel="stylesheet" href="./styles.css?v=20260829-3" />
   </head>
   <body class="field-guide-page">
     <a class="skip-link" href="#guideResults" data-i18n="skip">Skip to field-guide entries</a>
@@ -38,6 +38,13 @@
             <button id="guideLanguageEnglish" type="button" aria-pressed="true">EN</button>
             <button id="guideLanguageFrench" type="button" aria-pressed="false">FR</button>
           </div>
+          <a
+            class="icon-button top-support-button"
+            href="https://fnd.us/thezeddays/pay"
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="supportNav"
+          >Support</a>
           <a class="icon-button text-button guide-home-link" href="./index.html" data-i18n="tariffsLink">Tariffs</a>
           <button
             id="guideThemeButton"
@@ -157,6 +164,7 @@
                 </select>
               </label>
               <div class="guide-actions">
+                <a class="quiet-button form-jump-link" href="#submitProduct" data-i18n="productSubmitLink">Submit a product</a>
                 <a
                   class="export-button"
                   href="./data/canadian-field-guide-bilingual.csv"
@@ -200,6 +208,125 @@
           components. Check the origin wording on the specific item before buying. These independent,
           unpaid listings are informational and are not endorsements or certifications.</span>
         </aside>
+
+        <section id="submitProduct" class="market-submit-section catalogue-submit-section" aria-labelledby="submitProductTitle">
+          <div class="market-submit-policy">
+            <span class="eyebrow" data-i18n="productSubmitKicker">Help expand the catalogue</span>
+            <h2 id="submitProductTitle" data-i18n="productSubmitTitle">Submit a brand or product.</h2>
+            <p class="market-submit-lede" data-i18n="productSubmitIntro">
+              Suggest a Canadian-made product for independent research. Every accepted entry is fully vetted
+              before it appears in the 300+ catalogue.
+            </p>
+
+            <div class="market-inclusion-box">
+              <h3 data-i18n="productVettingTitle">The publication standard</h3>
+              <ol>
+                <li data-i18n="productVettingOne">Requests are free. Contributions, advertising and business relationships never buy inclusion or placement.</li>
+                <li data-i18n="productVettingTwo">Submit a specific product or product line. A Canadian head office, owner or maple leaf alone is not proof that it is made here.</li>
+                <li data-i18n="productVettingThree">An official public source must explicitly confirm that the named product is manufactured, grown, processed, assembled or built in Canada.</li>
+                <li data-i18n="productVettingFour">ZED DAYS independently checks the source, manufacturing location, product scope and relevant origin caveats before publication.</li>
+                <li data-i18n="productVettingFive">Submitted descriptions are research leads, not ready-made listings. ZED DAYS writes and sources the final entry independently.</li>
+                <li data-i18n="productVettingSix">Submission does not guarantee inclusion. Entries may be corrected or removed when evidence or production changes.</li>
+              </ol>
+            </div>
+
+            <p class="market-submit-privacy">
+              <strong data-i18n="productPrivacyLabel">Privacy:</strong>
+              <span data-i18n="productPrivacyBody">This form does not store or transmit information through the website. It prepares an email in your own mail application.</span>
+            </p>
+          </div>
+
+          <form id="productSubmissionForm" class="market-submission-form catalogue-submission-form" novalidate>
+            <div class="market-form-heading">
+              <span data-i18n="productFormStep">CATALOGUE INTAKE // 01</span>
+              <strong data-i18n="productRequiredNote">Required fields are marked *</strong>
+            </div>
+
+            <div class="market-form-grid">
+              <label class="market-form-field">
+                <span data-i18n="productBrandName">Brand or company *</span>
+                <input id="productBrandName" name="brandName" type="text" autocomplete="organization" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="productName">Specific product or line *</span>
+                <input id="productName" name="productName" type="text" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="productCategory">Product category *</span>
+                <input id="productCategory" name="category" type="text" placeholder="e.g. cookware, cereal or work boots" data-i18n-placeholder="productCategoryPlaceholder" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="productMadeWhere">Where is it made in Canada? *</span>
+                <input id="productMadeWhere" name="madeWhere" type="text" placeholder="City and province, if known" data-i18n-placeholder="productMadeWherePlaceholder" required />
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="productOriginClaim">Exact Canadian-production claim *</span>
+                <textarea id="productOriginClaim" name="originClaim" rows="3" placeholder="Quote the wording used by the manufacturer" data-i18n-placeholder="productOriginClaimPlaceholder" required></textarea>
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="productEvidenceUrl">Official evidence webpage *</span>
+                <input id="productEvidenceUrl" name="evidenceUrl" type="url" inputmode="url" placeholder="https://" data-i18n-placeholder="productUrlPlaceholder" required />
+                <small data-i18n="productEvidenceHelp">Link directly to the manufacturer or another authoritative page that confirms Canadian production for this product.</small>
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="productPageUrl">Product webpage</span>
+                <input id="productPageUrl" name="productUrl" type="url" inputmode="url" placeholder="https://" data-i18n-placeholder="productUrlPlaceholder" />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="productContactName">Your name *</span>
+                <input id="productContactName" name="contactName" type="text" autocomplete="name" required />
+              </label>
+
+              <label class="market-form-field">
+                <span data-i18n="productContactEmail">Your email *</span>
+                <input id="productContactEmail" name="contactEmail" type="email" autocomplete="email" required />
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="productRelationship">Your relationship to the product *</span>
+                <select id="productRelationship" name="relationship" required>
+                  <option value="" data-i18n="productRelationshipChoose">Choose one</option>
+                  <option value="customer" data-i18n="productRelationshipCustomer">Customer or community member</option>
+                  <option value="brand" data-i18n="productRelationshipBrand">Brand owner or employee</option>
+                  <option value="retailer" data-i18n="productRelationshipRetailer">Retailer or distributor</option>
+                  <option value="other" data-i18n="productRelationshipOther">Other</option>
+                </select>
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="productCaveats">Known imported ingredients, components or origin caveats</span>
+                <textarea id="productCaveats" name="caveats" rows="3" placeholder="Disclose anything that could affect the Canadian-made claim" data-i18n-placeholder="productCaveatsPlaceholder"></textarea>
+              </label>
+
+              <label class="market-form-field market-form-wide">
+                <span data-i18n="productNotes">Additional evidence or notes</span>
+                <textarea id="productNotes" name="notes" rows="3"></textarea>
+              </label>
+            </div>
+
+            <label class="market-form-consent">
+              <input id="productConsent" name="consent" type="checkbox" required />
+              <span data-i18n="productConsentText">I confirm this is a research suggestion, that the information is accurate to the best of my knowledge, and that publication depends on independent ZED DAYS verification. *</span>
+            </label>
+
+            <div class="market-form-actions">
+              <button class="export-button market-submit-button" type="submit" data-testid="button-submit-product">
+                <span data-i18n="productEmailButton">Prepare research submission</span>
+              </button>
+              <button id="productCopySubmission" class="quiet-button" type="button" data-testid="button-copy-product-submission">
+                <span data-i18n="productCopyButton">Copy details</span>
+              </button>
+            </div>
+            <p id="productSubmissionStatus" class="market-submission-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
 
         <section class="support-section" aria-labelledby="fieldSupportTitle">
           <div>
@@ -246,7 +373,7 @@
       </main>
     </div>
 
-    <script src="./field-guide.js?v=20260829-3" defer></script>
+    <script src="./field-guide.js?v=20260829-4" defer></script>
     <script async src="https://static.fundrazr.com/widgets/loader.js"></script>
   </body>
 </html>
