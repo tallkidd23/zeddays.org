@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" data-language="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./assets/zed-days-icon.png" />
+    <title>Southwestern Ontario Farmers’ Markets | ZED DAYS</title>
+    <meta
+      name="description"
+      content="Find verified farmers’ market days, hours and official schedules across Southwestern Ontario."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260828-2" />
+  </head>
+  <body class="field-guide-page market-page">
+    <a class="skip-link" href="#marketResults" data-i18n="skip">Skip to market listings</a>
+    <div class="app-shell">
+      <header class="topbar field-guide-topbar">
+        <a class="brand brand-link" href="./index.html" aria-label="ZED DAYS tariff guide home">
+          <div class="zed-mark" aria-hidden="true">
+            <span>ZED</span>
+            <span class="zero">0<i></i></span>
+            <span>DAYS</span>
+          </div>
+          <div>
+            <span class="eyebrow" data-i18n="mastheadKicker">Local food reference // Southwestern Ontario</span>
+            <h1 data-i18n="mastheadTitle">Market day finder</h1>
+            <p class="tagline">Zero Engagement. Unlimited Power.</p>
+          </div>
+        </a>
+        <div class="top-actions">
+          <div class="guide-language-toggle" role="group" aria-label="Language / Langue">
+            <button id="marketLanguageEnglish" type="button" aria-pressed="true">EN</button>
+            <button id="marketLanguageFrench" type="button" aria-pressed="false">FR</button>
+          </div>
+          <a class="icon-button text-button guide-home-link" href="./field-guide.html" data-i18n="guideLink">Products</a>
+          <button
+            id="marketThemeButton"
+            class="icon-button"
+            type="button"
+            aria-label="Switch colour theme"
+            data-testid="button-market-theme"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="main field-guide-main">
+        <section class="field-guide-hero market-hero" aria-labelledby="marketTitle">
+          <div class="guide-spine market-spine" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="field-guide-hero-copy">
+            <span class="eyebrow" data-i18n="heroKicker">Choose a community. Find the day. Meet the growers.</span>
+            <h2 id="marketTitle" data-i18n="heroTitle">Find market day.</h2>
+            <p data-i18n="heroBody">
+              Search regular farmers’ market days across Southwestern Ontario. Every listing points to an
+              official market or municipal schedule so you can confirm before travelling.
+            </p>
+          </div>
+          <div class="guide-edition-stamp market-edition-stamp" aria-label="Market directory information">
+            <span data-i18n="editionLabel">LOCAL EDITION</span>
+            <strong id="marketTotal">—</strong>
+            <span data-i18n="verifiedMarkets">VERIFIED MARKETS</span>
+            <small data-i18n="checkedDate">CHECKED 28.08.26</small>
+          </div>
+        </section>
+
+        <section class="guide-rule market-rule" aria-labelledby="marketRuleTitle">
+          <div>
+            <span class="eyebrow" data-i18n="ruleKicker">Before you leave</span>
+            <h2 id="marketRuleTitle" data-i18n="ruleTitle">Confirm today’s schedule.</h2>
+          </div>
+          <p data-i18n="ruleBody">
+            Market hours can change for weather, holidays and special events. Use this directory as a
+            starting point, then open the official schedule before making the trip.
+          </p>
+        </section>
+
+        <section class="guide-stats market-stats" aria-label="Market directory summary">
+          <article>
+            <span data-i18n="markets">Markets</span>
+            <strong id="marketStatTotal">—</strong>
+          </article>
+          <article>
+            <span data-i18n="communities">Communities</span>
+            <strong id="marketCommunityTotal">—</strong>
+          </article>
+          <article>
+            <span data-i18n="yearRound">Year-round</span>
+            <strong id="marketYearRoundTotal">—</strong>
+          </article>
+          <article>
+            <span data-i18n="region">Region</span>
+            <strong data-i18n="southwest">S.W. ON</strong>
+          </article>
+        </section>
+
+        <section class="guide-workspace market-workspace">
+          <div class="guide-controls">
+            <div class="guide-control-heading">
+              <div>
+                <span class="eyebrow" data-i18n="searchKicker">Plan the trip</span>
+                <h2 data-i18n="searchTitle">Find a market near you</h2>
+              </div>
+              <button id="marketResetButton" class="quiet-button" type="button" data-testid="button-market-reset">
+                <span data-i18n="reset">Reset</span>
+              </button>
+            </div>
+
+            <label class="search-field guide-search">
+              <span class="sr-only" data-i18n="searchLabel">Search by market, city, address or product</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" />
+              </svg>
+              <input
+                id="marketSearchInput"
+                type="search"
+                placeholder="Market, city, address or product"
+                data-i18n-placeholder="searchPlaceholder"
+                autocomplete="off"
+                data-testid="input-market-search"
+              />
+              <kbd>/</kbd>
+            </label>
+
+            <div class="guide-filter-row market-filter-row">
+              <label class="select-field">
+                <span data-i18n="community">Community</span>
+                <select id="marketCitySelect" data-testid="select-market-city">
+                  <option value="all">All communities</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span data-i18n="day">Market day</span>
+                <select id="marketDaySelect" data-testid="select-market-day">
+                  <option value="all">Any day</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span data-i18n="season">Season</span>
+                <select id="marketSeasonSelect" data-testid="select-market-season">
+                  <option value="all">All markets</option>
+                  <option value="year-round">Year-round</option>
+                  <option value="seasonal">Seasonal</option>
+                </select>
+              </label>
+              <button id="marketWeekendButton" class="flag-button market-weekend-button" type="button" aria-pressed="false" data-testid="button-market-weekend">
+                <span class="flag-dot"></span>
+                <span data-i18n="weekend">This weekend</span>
+              </button>
+              <div class="guide-actions">
+                <a
+                  class="export-button"
+                  href="./data/sw-ontario-farmers-markets.csv"
+                  download
+                  data-testid="link-download-markets"
+                ><span data-i18n="downloadCsv">Download CSV</span></a>
+              </div>
+            </div>
+          </div>
+
+          <nav id="marketDayIndex" class="guide-sector-index market-day-index" aria-label="Browse markets by day"></nav>
+
+          <div class="guide-results-head">
+            <p id="marketResultCount" aria-live="polite" data-testid="text-market-result-count">Loading verified markets…</p>
+            <span data-i18n="evidenceNote">Official schedules open in a new tab.</span>
+          </div>
+
+          <section id="marketResults" class="market-results" aria-label="Southwestern Ontario farmers’ markets"></section>
+
+          <div id="marketEmptyState" class="empty-state guide-empty" hidden>
+            <h3 data-i18n="emptyTitle">No markets match</h3>
+            <p data-i18n="emptyBody">Try a nearby community, another day, or reset the filters.</p>
+            <button id="marketEmptyResetButton" class="export-button" type="button">
+              <span data-i18n="resetSearch">Reset search</span>
+            </button>
+          </div>
+        </section>
+
+        <aside class="guide-disclosure">
+          <strong data-i18n="fieldNoteLabel">Field note:</strong>
+          <span data-i18n="fieldNoteBody">
+            Listings are independently compiled and unpaid. Market schedules can change. Confirm hours,
+            dates and cancellations with the official market before travelling.
+          </span>
+        </aside>
+
+        <footer>
+          <span data-i18n="footerEdition">ZED DAYS // Southwestern Ontario market finder // Edition 01</span>
+          <a href="mailto:thezeddays@gmail.com" data-i18n="footerContact">Contact ZED DAYS</a>
+          <a href="./index.html" data-i18n="footerReturn">Return to the counter-tariff guide</a>
+        </footer>
+      </main>
+    </div>
+
+    <script src="./markets.js?v=20260828-1" defer></script>
+  </body>
+</html>
