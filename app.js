@@ -111,6 +111,7 @@ const mainFrenchText = new Map([
   ["Use these as starting points, not guarantees.", "Utilisez-les comme points de départ, non comme garanties."],
   ["Thirteen screenshot-friendly cards with 34 verified starting points across eleven grocery-store aisles. Open a card, save the full-size image, and check the wording on the package while you shop.", "Treize cartes faciles à enregistrer, avec 34 points de départ vérifiés dans onze rayons d’épicerie. Ouvrez une carte, enregistrez l’image pleine grandeur et vérifiez le libellé sur l’emballage en magasin."],
   ["Fresh produce", "Fruits et légumes frais"],
+  ["Contact ZED DAYS", "Contacter ZED DAYS"],
   ["Find a product", "Trouver un produit"],
   ["Search the schedule", "Rechercher dans le barème"],
   ["Reset", "Réinitialiser"],
