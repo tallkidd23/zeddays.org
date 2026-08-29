@@ -509,6 +509,41 @@ body {
   max-width: 76ch;
 }
 
+.support-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.support-contribution-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border: 2px solid var(--ink);
+  color: var(--surface);
+  background: var(--accent);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.support-contribution-button:hover,
+.support-contribution-button:focus-visible {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.support-action > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .support-copy small {
   display: block;
   max-width: 76ch;

@@ -152,6 +152,8 @@ const mainFrenchText = new Map([
   ["ZED DAYS is an independently run Canadian public resource, researched, designed and maintained without paid listings or corporate influence.", "ZED DAYS est une ressource publique canadienne indépendante, recherchée, conçue et tenue à jour sans fiches payantes ni influence d’entreprise."],
   ["Optional contributions help cover hosting, source verification, translation, regular updates, and the development of free printable and physical field resources. When funding permits, printed materials will be distributed to communities at no charge.", "Les contributions facultatives aident à payer l’hébergement, la vérification des sources, la traduction, les mises à jour régulières et la création de ressources imprimables et physiques gratuites. Lorsque le financement le permettra, du matériel imprimé sera distribué gratuitement dans les communautés."],
   ["Contributions never influence which products or companies appear in the guide. Digital resources will remain free for everyone.", "Les contributions n’influencent jamais les produits ou entreprises qui figurent dans le guide. Les ressources numériques resteront gratuites pour tout le monde."],
+  ["Contribute via FundRazr", "Contribuer avec FundRazr"],
+  ["Secure contribution processing by FundRazr.", "Traitement sécurisé des contributions par FundRazr."],
   ["ZED DAYS is not currently a registered charity. Contributions are not eligible for charitable tax receipts.", "ZED DAYS n’est pas actuellement un organisme de bienfaisance enregistré. Les contributions ne donnent pas droit à un reçu fiscal."],
   ["Source: Department of Finance Canada", "Source : ministère des Finances Canada"],
   ["Open official schedule", "Ouvrir le barème officiel"],
