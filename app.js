@@ -17,7 +17,7 @@ const mainFrenchText = new Map([
   ["FIELD", "GUIDE"],
   ["GUIDE", "TERRAIN"],
   ["SEARCHABLE // BILINGUAL // SOURCE-CHECKED", "RECHERCHABLE // BILINGUE // SOURCES VÉRIFIÉES"],
-  ["300 VERIFIED CANADIAN-MADE PRODUCTS", "300 PRODUITS FABRIQUÉS AU CANADA ET VÉRIFIÉS"],
+  ["629+ VERIFIED CANADIAN-MADE PRODUCTS, AND COUNTING", "629+ PRODUITS FABRIQUÉS AU CANADA ET VÉRIFIÉS, ET LE NOMBRE AUGMENTE"],
   ["Browse products and manufacturers across 14 sectors.", "Parcourez les produits et fabricants de 14 secteurs."],
   ["OPEN THE GUIDE", "OUVRIR LE GUIDE"],
   ["MARKET", "JOURS"],
