@@ -19,7 +19,7 @@ const mainFrenchText = new Map([
   ["Skip to results", "Passer aux résultats"],
   ["Zero engagement // Canada", "Zéro engagement // Canada"],
   ["Counter-tariff field guide", "Guide des contre-tarifs"],
-  ["Official schedule // 648 tariff lines", "Barème officiel // 648 lignes tarifaires"],
+  ["Official schedule // 739 tariff lines", "Barème officiel // 739 lignes tarifaires"],
   ["Official Tariff HS Search", "Recherche officielle des tarifs (SH)"],
   ["Home", "Accueil"],
   ["Official list updated Aug. 26, 2026", "Liste officielle mise à jour le 26 août 2026"],
@@ -30,8 +30,8 @@ const mainFrenchText = new Map([
   ["FIELD", "GUIDE"],
   ["GUIDE", "TERRAIN"],
   ["SEARCHABLE // BILINGUAL // SOURCE-CHECKED", "RECHERCHABLE // BILINGUE // SOURCES VÉRIFIÉES"],
-  ["629+ VERIFIED CANADIAN-MADE PRODUCTS, AND COUNTING", "629+ PRODUITS FABRIQUÉS AU CANADA ET VÉRIFIÉS, ET LE NOMBRE AUGMENTE"],
-  ["Browse products and manufacturers across 14 sectors.", "Parcourez les produits et fabricants de 14 secteurs."],
+  ["653+ VERIFIED CANADIAN-MADE PRODUCTS, AND COUNTING", "653+ PRODUITS FABRIQUÉS AU CANADA ET VÉRIFIÉS, ET LE NOMBRE AUGMENTE"],
+  ["Browse products and manufacturers across 15 sectors.", "Parcourez les produits et fabricants de 15 secteurs."],
   ["OPEN THE GUIDE", "OUVRIR LE GUIDE"],
   ["MARKET", "JOURS"],
   ["DAYS", "MARCHÉ"],
@@ -715,6 +715,7 @@ function showDetails(code) {
       <span class="eyebrow">${fr ? "Impact commercial" : "Trade impact"}</span>
       <p>${fr ? "Compris dans le total officiel de 27,6 G$ CA. Le barème ne publie aucune valeur d’importation par article." : "Included in the official C$27.6B aggregate. No item-level import value is published in the schedule."}</p>
     </div>
+    ${row.sector === "Alcoholic beverages" ? `<div class="detail-description"><span class="eyebrow">${fr ? "Source de la mesure" : "Measure source"}</span><p>${fr ? "Contre-mesures originales de mars 2025 (tranche de 25 %) — ne fait pas partie de la liste à parité du 8 septembre 2026." : escapeHtml(row.value_scope)}</p></div>` : ""}
     <p class="detail-description"><a class="source-link" href="${row.source_url}" target="_blank" rel="noreferrer">${fr ? "Vérifier dans le barème officiel" : "Verify in official schedule"}</a></p>
   `;
   elements.detail.showModal();
