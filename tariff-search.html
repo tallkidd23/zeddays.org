@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-language="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./assets/zed-days-icon.png" />
+    <title>Official Tariff HS Search | ZED DAYS</title>
+    <meta
+      name="description"
+      content="Search the official Canadian counter-tariff schedule by HS code or product, filter by rate and sector, and compare affected U.S.-origin goods."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260830-1" />
+  </head>
+  <body class="field-guide-page">
+    <a class="skip-link" href="#main">Skip to results</a>
+    <div class="app-shell">
+      <header class="topbar field-guide-topbar">
+        <a class="brand brand-link" href="./index.html" aria-label="ZED DAYS tariff guide home">
+          <div class="zed-mark" aria-hidden="true">
+            <span>ZED</span>
+            <span class="zero">0<i></i></span>
+            <span>DAYS</span>
+          </div>
+          <div>
+            <span class="eyebrow">Official schedule // 648 tariff lines</span>
+            <h1>Official Tariff HS Search</h1>
+            <p class="tagline">Zero Engagement. Unlimited Power.</p>
+          </div>
+        </a>
+        <div class="top-actions">
+          <span class="as-of">Official list updated Aug. 26, 2026</span>
+          <div class="guide-language-toggle" role="group" aria-label="Language / Langue">
+            <button id="languageEnglish" type="button" aria-pressed="true">EN</button>
+            <button id="languageFrench" type="button" aria-pressed="false">FR</button>
+          </div>
+          <a
+            class="icon-button top-support-button"
+            href="https://fnd.us/thezeddays/pay"
+            target="_blank"
+            rel="noreferrer"
+          >Support</a>
+          <a class="icon-button text-button guide-home-link" href="./index.html">Home</a>
+          <button id="methodButton" class="icon-button text-button" type="button" data-testid="button-method">
+            Method
+          </button>
+          <button id="themeButton" class="icon-button" type="button" aria-label="Switch colour theme" data-testid="button-theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main id="main" class="main">
+
+        <section class="status-strip search-page-strip" aria-label="Measure summary">
+          <article class="kpi">
+            <span class="kpi-label">Official tariff lines</span>
+            <strong id="totalLines" data-testid="value-total-lines">648</strong>
+            <span class="kpi-note">Current consolidated schedule</span>
+          </article>
+          <article class="kpi alert-kpi">
+            <span class="kpi-label">At 50%</span>
+            <strong id="fiftyLines" data-testid="value-fifty-lines">413</strong>
+            <span class="kpi-note">Highest retaliatory rate</span>
+          </article>
+          <article class="kpi">
+            <span class="kpi-label">Covered imports</span>
+            <strong>C$27.6B</strong>
+            <span class="kpi-note">Official aggregate, not line-level</span>
+          </article>
+          <article class="kpi">
+            <span class="kpi-label">Effective</span>
+            <strong>Sep. 8</strong>
+            <span class="kpi-note">12:01 a.m. EDT, 2026</span>
+          </article>
+        </section>
+        <span id="noticeCount" hidden>648</span>
+
+        <section class="workspace">
+          <section class="priority-section" aria-labelledby="priorityTitle">
+            <div class="priority-heading">
+              <div>
+                <span class="eyebrow">Immediate action // consumer targets</span>
+                <h2 id="priorityTitle">10 U.S. product groups to skip first</h2>
+              </div>
+              <p>
+                Ranked for practical leverage, not claimed dollar volume: tariff rate + purchase visibility +
+                Canadian substitution potential + breadth of covered lines.
+              </p>
+            </div>
+            <div id="priorityGrid" class="priority-grid" data-testid="priority-grid"></div>
+            <p class="priority-caveat">
+              These are campaign priorities, not an official government value ranking. Check country of origin:
+              tariffs apply to U.S.-origin goods, not every American brand.
+            </p>
+          </section>
+
+          <section class="alternatives-section" aria-labelledby="alternativesTitle">
+            <div class="alternatives-heading">
+              <div>
+                <span class="eyebrow">Verified Canadian alternatives // pilot</span>
+                <h2 id="alternativesTitle">Two places to start in every priority category</h2>
+              </div>
+              <p>
+                Independent, unpaid listings checked against official company sources on Aug. 28, 2026.
+                “Canadian-owned” and “made in Canada” are not treated as the same claim.
+              </p>
+            </div>
+            <div id="alternativesGrid" class="alternatives-grid"></div>
+            <div class="alternatives-disclosure">
+              <strong>Check before you buy.</strong>
+              Manufacturing locations and product lines can change. Some companies make selected products
+              in Canada and import others. Verify the country-of-origin label on the specific item or package.
+              These listings are for general information and are not endorsements, advertisements or
+              certifications of origin.
+            </div>
+          </section>
+
+
+          <div class="filters-panel">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Find a product</span>
+                <h2>Search the schedule</h2>
+              </div>
+              <button id="resetButton" class="quiet-button" type="button" data-testid="button-reset">Reset</button>
+            </div>
+
+            <label class="search-field">
+              <span class="sr-only">Search by HS code or product description</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+              <input id="searchInput" type="search" placeholder="HS code or product description" autocomplete="off" data-testid="input-search" />
+              <kbd>/</kbd>
+            </label>
+            <p class="search-help">
+              Search a product name such as <strong>furniture</strong>, or enter an HS code with or without periods.
+            </p>
+
+            <div class="filter-row">
+              <fieldset class="rate-filter">
+                <legend>Tariff rate</legend>
+                <label><input type="checkbox" name="rate" value="15" checked /> <span>15%</span></label>
+                <label><input type="checkbox" name="rate" value="25" checked /> <span>25%</span></label>
+                <label class="rate-50"><input type="checkbox" name="rate" value="50" checked /> <span>50%</span></label>
+              </fieldset>
+
+              <label class="select-field">
+                <span>Sector</span>
+                <select id="sectorSelect" data-testid="select-sector">
+                  <option value="all">All sectors</option>
+                </select>
+              </label>
+
+              <label class="select-field">
+                <span>Sort</span>
+                <select id="sortSelect" data-testid="select-sort">
+                  <option value="code-asc">HS code: low to high</option>
+                  <option value="rate-desc">Rate: high to low</option>
+                  <option value="sector-asc">Sector: A–Z</option>
+                </select>
+              </label>
+
+              <button id="fiftyOnlyButton" class="flag-button" type="button" aria-pressed="false" data-testid="button-fifty-only">
+                <span class="flag-dot"></span> Show only 50%
+              </button>
+            </div>
+          </div>
+
+          <div class="view-tabs" role="tablist" aria-label="Dashboard views">
+            <button class="tab is-active" id="itemsTab" role="tab" aria-selected="true" aria-controls="itemsView" data-testid="tab-items">
+              Complete HS list
+            </button>
+            <button class="tab" id="compareTab" role="tab" aria-selected="false" aria-controls="compareView" data-testid="tab-compare">
+              Compare sectors
+            </button>
+          </div>
+
+          <section id="itemsView" class="view" role="tabpanel" aria-labelledby="itemsTab">
+            <div class="table-toolbar">
+              <p id="resultCount" class="result-count" aria-live="polite" data-testid="text-result-count">Loading tariff lines…</p>
+              <div class="table-actions">
+                <button id="showAllButton" class="export-button" type="button" aria-pressed="false" data-testid="button-show-all">
+                  Show all 648 HS codes
+                </button>
+                <button id="exportButton" class="export-button" type="button" data-testid="button-export">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" /></svg>
+                  Export filtered CSV
+                </button>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">HS code</th>
+                    <th scope="col">Indicative description</th>
+                    <th scope="col">Sector</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Trade impact</th>
+                    <th scope="col"><span class="sr-only">Open details</span></th>
+                  </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+              </table>
+              <div id="emptyState" class="empty-state" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7" /></svg>
+                <h3>No tariff lines match</h3>
+                <p>Broaden the search or restore all rates.</p>
+                <button id="emptyResetButton" class="export-button" type="button">Reset filters</button>
+              </div>
+            </div>
+
+            <nav id="pagination" class="pagination" aria-label="Result pages">
+              <button id="prevButton" class="page-button" type="button" data-testid="button-prev">Previous</button>
+              <span id="pageStatus" data-testid="text-page-status">Page 1</span>
+              <button id="nextButton" class="page-button" type="button" data-testid="button-next">Next</button>
+            </nav>
+          </section>
+
+          <section id="compareView" class="view" role="tabpanel" aria-labelledby="compareTab" hidden>
+            <div class="comparison-head">
+              <div>
+                <span class="eyebrow">Filtered comparison</span>
+                <h2>Retaliatory scope by sector</h2>
+              </div>
+              <p>Bars show tariff-line count. Dollar exposure is available only for the full C$27.6B measure.</p>
+            </div>
+            <div id="sectorChart" class="sector-chart" data-testid="chart-sectors"></div>
+          </section>
+        </section>
+
+        <section class="support-section" aria-labelledby="supportTitle">
+          <div>
+            <span class="eyebrow">Keep the resource independent</span>
+            <h2 id="supportTitle">Support ZED DAYS</h2>
+          </div>
+          <div class="support-copy">
+            <p>
+              ZED DAYS is an independently run Canadian public resource, researched, designed and maintained
+              without paid listings or corporate influence.
+            </p>
+            <p>
+              Optional contributions help cover hosting, source verification, translation, regular updates,
+              and the development of free printable and physical field resources. When funding permits,
+              printed materials will be distributed to communities at no charge.
+            </p>
+            <p>
+              Contributions never influence which products or companies appear in the guide. Digital
+              resources will remain free for everyone.
+            </p>
+            <div class="support-action">
+              <a
+                class="fr-widget support-contribution-button"
+                data-type="pay"
+                href="https://fnd.us/thezeddays/pay"
+                target="_blank"
+                rel="noreferrer"
+              >Contribute via FundRazr</a>
+              <span>Secure contribution processing by FundRazr.</span>
+            </div>
+            <small>
+              ZED DAYS is not currently a registered charity. Contributions are not eligible for charitable
+              tax receipts.
+            </small>
+          </div>
+        </section>
+
+        <footer>
+          <span>Source: Department of Finance Canada</span>
+          <a href="mailto:thezeddays@gmail.com">Contact ZED DAYS</a>
+          <a href="https://www.canada.ca/en/department-finance/programs/international-trade-finance-policy/canadas-response-us-tariffs/complete-list-us-products-subject-to-counter-tariffs.html" target="_blank" rel="noreferrer">Open official schedule</a>
+        </footer>
+      </main>
+    </div>
+
+    <dialog id="detailDialog" class="detail-dialog">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Close details" value="cancel">×</button>
+      </form>
+      <div id="detailContent"></div>
+    </dialog>
+
+    <dialog id="methodDialog" class="method-dialog">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Close method" value="cancel">×</button>
+      </form>
+      <span class="eyebrow">Method & limits</span>
+      <h2>What this dashboard measures</h2>
+      <ul>
+        <li>Rows are parsed from the Government of Canada consolidated schedule updated August 26, 2026.</li>
+        <li>Sector labels are analytical groupings based primarily on HS chapter, with product-term rules for appliances and farm equipment.</li>
+        <li>The government reports C$27.6B in covered U.S. imports for the measure as a whole. It does not publish a value beside each tariff item in this schedule.</li>
+        <li>“Trade impact” therefore remains “aggregate only” at item level. Sector bars compare tariff-line breadth, not dollars.</li>
+        <li>The 648-line total is authoritative for the current September 8 table. Historical or expired countermeasures are excluded.</li>
+        <li>The Top 10 is an editorial action list. It prioritizes consumer-facing products using rate, visibility, substitutability and covered-line breadth. It is not presented as a dollar ranking.</li>
+      </ul>
+      <a class="source-link" href="https://www.canada.ca/en/department-finance/news/2026/08/canada-announces-targeted-countermeasures-and-substantive-support-for-workers-and-businesses-in-response-to-us-tariffs.html" target="_blank" rel="noreferrer">Read the official announcement</a>
+    </dialog>
+
+    <script type="module" src="./tariff-search.js?v=20260829-1"></script>
+    <script async src="https://static.fundrazr.com/widgets/loader.js"></script>
+  </body>
+</html>

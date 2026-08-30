@@ -74,6 +74,21 @@ body {
   background: var(--ink);
 }
 
+.tariff-search-callout {
+  border-color: var(--warning);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.tariff-search-callout .field-guide-callout-index {
+  color: var(--surface);
+  background: var(--warning);
+}
+
+.tariff-search-callout .field-guide-callout-action {
+  color: var(--surface);
+  background: var(--ink);
+}
+
 .field-guide-hero {
   position: relative;
   display: grid;

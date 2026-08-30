@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260829-3" />
+    <link rel="stylesheet" href="./styles.css?v=20260830-1" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to results</a>
@@ -298,159 +298,15 @@
         </section>
 
 
-        <section class="workspace">
-          <section class="priority-section" aria-labelledby="priorityTitle">
-            <div class="priority-heading">
-              <div>
-                <span class="eyebrow">Immediate action // consumer targets</span>
-                <h2 id="priorityTitle">10 U.S. product groups to skip first</h2>
-              </div>
-              <p>
-                Ranked for practical leverage, not claimed dollar volume: tariff rate + purchase visibility +
-                Canadian substitution potential + breadth of covered lines.
-              </p>
-            </div>
-            <div id="priorityGrid" class="priority-grid" data-testid="priority-grid"></div>
-            <p class="priority-caveat">
-              These are campaign priorities, not an official government value ranking. Check country of origin:
-              tariffs apply to U.S.-origin goods, not every American brand.
-            </p>
-          </section>
-
-          <section class="alternatives-section" aria-labelledby="alternativesTitle">
-            <div class="alternatives-heading">
-              <div>
-                <span class="eyebrow">Verified Canadian alternatives // pilot</span>
-                <h2 id="alternativesTitle">Two places to start in every priority category</h2>
-              </div>
-              <p>
-                Independent, unpaid listings checked against official company sources on Aug. 28, 2026.
-                “Canadian-owned” and “made in Canada” are not treated as the same claim.
-              </p>
-            </div>
-            <div id="alternativesGrid" class="alternatives-grid"></div>
-            <div class="alternatives-disclosure">
-              <strong>Check before you buy.</strong>
-              Manufacturing locations and product lines can change. Some companies make selected products
-              in Canada and import others. Verify the country-of-origin label on the specific item or package.
-              These listings are for general information and are not endorsements, advertisements or
-              certifications of origin.
-            </div>
-          </section>
-
-
-          <div class="filters-panel">
-            <div class="section-heading">
-              <div>
-                <span class="eyebrow">Find a product</span>
-                <h2>Search the schedule</h2>
-              </div>
-              <button id="resetButton" class="quiet-button" type="button" data-testid="button-reset">Reset</button>
-            </div>
-
-            <label class="search-field">
-              <span class="sr-only">Search by HS code or product description</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
-              <input id="searchInput" type="search" placeholder="HS code or product description" autocomplete="off" data-testid="input-search" />
-              <kbd>/</kbd>
-            </label>
-            <p class="search-help">
-              Search a product name such as <strong>furniture</strong>, or enter an HS code with or without periods.
-            </p>
-
-            <div class="filter-row">
-              <fieldset class="rate-filter">
-                <legend>Tariff rate</legend>
-                <label><input type="checkbox" name="rate" value="15" checked /> <span>15%</span></label>
-                <label><input type="checkbox" name="rate" value="25" checked /> <span>25%</span></label>
-                <label class="rate-50"><input type="checkbox" name="rate" value="50" checked /> <span>50%</span></label>
-              </fieldset>
-
-              <label class="select-field">
-                <span>Sector</span>
-                <select id="sectorSelect" data-testid="select-sector">
-                  <option value="all">All sectors</option>
-                </select>
-              </label>
-
-              <label class="select-field">
-                <span>Sort</span>
-                <select id="sortSelect" data-testid="select-sort">
-                  <option value="code-asc">HS code: low to high</option>
-                  <option value="rate-desc">Rate: high to low</option>
-                  <option value="sector-asc">Sector: A–Z</option>
-                </select>
-              </label>
-
-              <button id="fiftyOnlyButton" class="flag-button" type="button" aria-pressed="false" data-testid="button-fifty-only">
-                <span class="flag-dot"></span> Show only 50%
-              </button>
-            </div>
-          </div>
-
-          <div class="view-tabs" role="tablist" aria-label="Dashboard views">
-            <button class="tab is-active" id="itemsTab" role="tab" aria-selected="true" aria-controls="itemsView" data-testid="tab-items">
-              Complete HS list
-            </button>
-            <button class="tab" id="compareTab" role="tab" aria-selected="false" aria-controls="compareView" data-testid="tab-compare">
-              Compare sectors
-            </button>
-          </div>
-
-          <section id="itemsView" class="view" role="tabpanel" aria-labelledby="itemsTab">
-            <div class="table-toolbar">
-              <p id="resultCount" class="result-count" aria-live="polite" data-testid="text-result-count">Loading tariff lines…</p>
-              <div class="table-actions">
-                <button id="showAllButton" class="export-button" type="button" aria-pressed="false" data-testid="button-show-all">
-                  Show all 648 HS codes
-                </button>
-                <button id="exportButton" class="export-button" type="button" data-testid="button-export">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" /></svg>
-                  Export filtered CSV
-                </button>
-              </div>
-            </div>
-
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">HS code</th>
-                    <th scope="col">Indicative description</th>
-                    <th scope="col">Sector</th>
-                    <th scope="col">Rate</th>
-                    <th scope="col">Trade impact</th>
-                    <th scope="col"><span class="sr-only">Open details</span></th>
-                  </tr>
-                </thead>
-                <tbody id="resultsBody"></tbody>
-              </table>
-              <div id="emptyState" class="empty-state" hidden>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7" /></svg>
-                <h3>No tariff lines match</h3>
-                <p>Broaden the search or restore all rates.</p>
-                <button id="emptyResetButton" class="export-button" type="button">Reset filters</button>
-              </div>
-            </div>
-
-            <nav id="pagination" class="pagination" aria-label="Result pages">
-              <button id="prevButton" class="page-button" type="button" data-testid="button-prev">Previous</button>
-              <span id="pageStatus" data-testid="text-page-status">Page 1</span>
-              <button id="nextButton" class="page-button" type="button" data-testid="button-next">Next</button>
-            </nav>
-          </section>
-
-          <section id="compareView" class="view" role="tabpanel" aria-labelledby="compareTab" hidden>
-            <div class="comparison-head">
-              <div>
-                <span class="eyebrow">Filtered comparison</span>
-                <h2>Retaliatory scope by sector</h2>
-              </div>
-              <p>Bars show tariff-line count. Dollar exposure is available only for the full C$27.6B measure.</p>
-            </div>
-            <div id="sectorChart" class="sector-chart" data-testid="chart-sectors"></div>
-          </section>
-        </section>
+        <a class="field-guide-callout tariff-search-callout" href="./tariff-search.html" aria-label="Open the Official Tariff HS Search">
+          <span class="field-guide-callout-index">HS<br />SEARCH</span>
+          <span class="field-guide-callout-copy">
+            <small>648 TARIFF LINES // FILTER BY RATE &amp; SECTOR // EXPORT CSV</small>
+            <strong>OFFICIAL TARIFF HS SEARCH</strong>
+            <span>Look up any HS code or product, compare sectors, and see the September 8 counter-tariff rate.</span>
+          </span>
+          <span class="field-guide-callout-action">OPEN THE SEARCH <b>→</b></span>
+        </a>
 
         <section class="support-section" aria-labelledby="supportTitle">
           <div>
@@ -496,13 +352,6 @@
       </main>
     </div>
 
-    <dialog id="detailDialog" class="detail-dialog">
-      <form method="dialog">
-        <button class="dialog-close" aria-label="Close details" value="cancel">×</button>
-      </form>
-      <div id="detailContent"></div>
-    </dialog>
-
     <dialog id="methodDialog" class="method-dialog">
       <form method="dialog">
         <button class="dialog-close" aria-label="Close method" value="cancel">×</button>
@@ -520,7 +369,7 @@
       <a class="source-link" href="https://www.canada.ca/en/department-finance/news/2026/08/canada-announces-targeted-countermeasures-and-substantive-support-for-workers-and-businesses-in-response-to-us-tariffs.html" target="_blank" rel="noreferrer">Read the official announcement</a>
     </dialog>
 
-    <script type="module" src="./app.js?v=20260829-12"></script>
+    <script type="module" src="./app.js?v=20260830-1"></script>
     <script async src="https://static.fundrazr.com/widgets/loader.js"></script>
   </body>
 </html>
