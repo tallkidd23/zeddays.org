@@ -1421,6 +1421,39 @@ fieldset legend {
   padding: 20px clamp(16px, 3vw, 40px) 28px;
 }
 
+/* iOS Safari renders 100dvh unreliably while the address bar shows/hides
+   during scroll, which can make the fixed app-shell + inner scroll pane
+   miscalculate height and paint its background over page content. Below
+   the tablet breakpoint, drop the locked-viewport shell entirely and let
+   the page scroll naturally instead of relying on an inner scroll pane.
+   min-width: 0 stops fixed-width descendants (e.g. the horizontal
+   grocery-card swipe rail) from stretching these grid/flex ancestors
+   wider than the viewport now that outer clipping no longer masks it. */
+@media (max-width: 800px) {
+  body {
+    overflow: visible;
+    overflow-x: hidden;
+  }
+
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .main {
+    overflow-y: visible;
+    overscroll-behavior: auto;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .topbar {
+    min-width: 0;
+  }
+}
+
 .status-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
