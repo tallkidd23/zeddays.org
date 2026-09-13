@@ -1,0 +1,22 @@
+[
+  {
+    "brand": "MANDUST INC.",
+    "product": "MANDUST",
+    "category": "HEALTH & BEAUTY",
+    "sector_en": "Cleaning, beauty and personal care",
+    "sector_fr": "Nettoyage, beauté et soins personnels",
+    "manufacturing_location": "Welland, Ontario",
+    "canadian_claim": "Made in Canada",
+    "evidence_url": "https://mandust.ca/",
+    "product_url": "https://mandust.ca/collections/all",
+    "contact_name": "Steven McInnis",
+    "contact_email": "mandustpowder@gmail.com",
+    "relationship": "Brand owner/employee",
+    "origin_caveats": "Some ingredients and packaging components sourced from outside Canada. MANDUST is blended, filled, packaged and finished in Welland, Ontario, Canada.",
+    "confidence": "High",
+    "notes": "Canadian-owned small business producing body powder in Welland, ON. Verified via mandust.ca, supportontariomade.ca, fyicanada.ca (98/100 Canadian score). Packaging made in North America. Some ingredients likely imported.",
+    "tariff_connection_en": "HS 3304 (beauty/skincare preparations)",
+    "tariff_connection_fr": "SH 3304 (pré··parations de beauté​​/soins de la peau)",
+    "research_date": "2026-09-13"
+  }
+]
