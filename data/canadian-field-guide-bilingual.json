@@ -19234,5 +19234,33 @@
     "origin_caveat_fr": "L’entreprise est structurée en coentreprise entre des sociétés de placement des Premières Nations et un fabricant de détergents non autochtone.",
     "tariff_relevance_fr": "Remplace les produits d’entretien ménagers d’origine américaine visés par les contre-mesures tarifaires du Canada applicables aux produits de nettoyage américains (position tarifaire 34.02).",
     "sector_fr": "Entretien ménager, beauté et soins personnels"
+  },
+  {
+    "id": 688,
+    "sector": "Cleaning, beauty and personal care",
+    "category": "Personal care",
+    "brand": "MANDUST INC.",
+    "product_or_line": "MANDUST, LADYDUST and BABYDUST body powders",
+    "common_use": "Talc-free, all-natural body powder for men, women and babies; moisture absorption and odor protection",
+    "made_in_canada_claim": "mandust.ca describes MANDUST as a “proudly Canadian brand,” “headquartered in Niagara, Canada,” with “North American manufacturing,” and states its powders are “proudly made in Ontario.” The brand's own product labelling uses the claim “Made in Canada” (per brand submission and third-party verification); this exact phrase was not found verbatim on the pages fetched from mandust.ca.",
+    "manufacturing_location": "Welland, Ontario, Canada (tubes hand filled, packed and shipped by owner Steven McInnis)",
+    "ownership_note": "Canadian-owned small business; brand owner/contact Steven McInnis, based in Welland, Ontario",
+    "origin_caveat": "Some ingredients and packaging components are sourced from outside Canada. Packaging (recyclable paper tubes, 80% post-consumer recycled content) is described by mandust.ca as North American rather than specifically Canadian; ingredient sourcing (arrowroot, kaolin clay, zinc oxide) is not fully disclosed. Final product is blended, filled, packaged and finished in Welland, Ontario.",
+    "tariff_relevance": "Replaces U.S.-origin body powders and personal care preparations subject to Canada's counter-tariffs (heading 33.04).",
+    "candidate_hs_heading": "33.04",
+    "evidence_quote": "Headquartered in Niagara, Canada... North American manufacturing... proudly made in Ontario.",
+    "official_source_url": "https://mandust.ca/",
+    "secondary_source_url": "https://supportontariomade.ca/fabricant/welland/mandust-inc",
+    "verification_date": "2026-09-13",
+    "confidence": "Medium",
+    "sector_fr": "Entretien ménager, beauté et soins personnels",
+    "category_fr": "Soins personnels",
+    "product_or_line_fr": "Poudres corporelles MANDUST, LADYDUST et BABYDUST",
+    "common_use_fr": "Poudre corporelle naturelle et sans talc pour hommes, femmes et bébés; absorption de l'humidité et protection contre les odeurs",
+    "made_in_canada_claim_fr": "Le site mandust.ca décrit MANDUST comme une « marque canadienne », « siège social à Niagara, Canada », avec une « fabrication nord-américaine », et précise que ses poudres sont « fièrement fabriquées en Ontario ». L'étiquetage du produit utilise la mention « Fabriqué au Canada » (selon la soumission de la marque et la vérification par des tiers); cette formulation exacte n'a pas été trouvée textuellement sur les pages consultées de mandust.ca.",
+    "manufacturing_location_fr": "Welland, Ontario, Canada (tubes remplis, emballés et expédiés à la main par le propriétaire Steven McInnis)",
+    "ownership_note_fr": "Petite entreprise canadienne; propriétaire/contact de la marque Steven McInnis, basé à Welland, Ontario",
+    "origin_caveat_fr": "Certains ingrédients et composants d'emballage proviennent de l'extérieur du Canada. L'emballage (tubes en papier recyclable, 80 % de contenu recyclé postconsommation) est décrit par mandust.ca comme nord-américain plutôt que spécifiquement canadien; la provenance des ingrédients (arrow-root, argile kaolin, oxyde de zinc) n'est pas entièrement divulguée. Le produit final est mélangé, rempli, emballé et fini à Welland, Ontario.",
+    "tariff_relevance_fr": "Remplace les poudres corporelles et préparations de soins personnels d'origine américaine visées par les contre-mesures tarifaires du Canada (position tarifaire 33.04)."
   }
 ]
