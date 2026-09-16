@@ -29,47 +29,53 @@
             <span>DAYS</span>
           </div>
           <div>
-            <span class="eyebrow">Privacy statement</span>
-            <h1>How ZED DAYS handles your data</h1>
-            <p class="tagline">Zero tracking games. Straight answers.</p>
+            <span class="eyebrow" data-i18n="eyebrow">Privacy statement</span>
+            <h1 data-i18n="pageTitle">How ZED DAYS handles your data</h1>
+            <p class="tagline" data-i18n="tagline">Zero tracking games. Straight answers.</p>
           </div>
         </a>
+        <div class="top-actions">
+          <div class="guide-language-toggle" role="group" aria-label="Language / Langue">
+            <button id="privacyLanguageEnglish" type="button" aria-pressed="true">EN</button>
+            <button id="privacyLanguageFrench" type="button" aria-pressed="false">FR</button>
+          </div>
+        </div>
       </header>
 
       <main id="main" class="market-submit-policy" style="padding: 32px 20px 60px; max-width: 720px; margin: 0 auto;">
-        <h2 style="max-width: none; font-size: clamp(28px, 4vw, 44px);">Privacy, plainly.</h2>
-        <p class="market-submit-lede" style="max-width: none;">
+        <h2 data-i18n="h1" style="max-width: none; font-size: clamp(28px, 4vw, 44px);">Privacy, plainly.</h2>
+        <p class="market-submit-lede" data-i18n="lede" style="max-width: none;">
           ZED DAYS exists to help people find and verify Canadian-made products. That only works if the
           site itself is honest about what it collects. Here is the complete picture, in plain language.
         </p>
 
         <div class="market-inclusion-box">
-          <h3>What we collect</h3>
-          <p style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
+          <h3 data-i18n="collectTitle">What we collect</h3>
+          <p data-i18n="collectBody1" style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
             This site uses <strong>Cloudflare Web Analytics</strong> to see, in aggregate, how many people
             visit and which pages they look at. It reports basic counts: page views, visit counts, referring
             sites, approximate country, and device type (phone, tablet, desktop).
           </p>
-          <p style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
+          <p data-i18n="collectBody2" style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
             That is the only analytics tool on this site.
           </p>
         </div>
 
         <div class="market-inclusion-box">
-          <h3>What we do not collect</h3>
+          <h3 data-i18n="notCollectTitle">What we do not collect</h3>
           <ol>
-            <li>No cookies are set by our analytics.</li>
-            <li>No individual visitor is identified, fingerprinted, or tracked across visits.</li>
-            <li>No data is tracked across other websites you visit, and nothing is sold or shared with advertisers.</li>
-            <li>No personal information is required to search the field guide, the tariff schedule, or the market finder -- they all work anonymously.</li>
+            <li data-i18n="notCollect1">No cookies are set by our analytics.</li>
+            <li data-i18n="notCollect2">No individual visitor is identified, fingerprinted, or tracked across visits.</li>
+            <li data-i18n="notCollect3">No data is tracked across other websites you visit, and nothing is sold or shared with advertisers.</li>
+            <li data-i18n="notCollect4">No personal information is required to search the field guide, the tariff schedule, or the market finder -- they all work anonymously.</li>
           </ol>
         </div>
 
         <div class="market-inclusion-box">
-          <h3>Why you might see a "tracker blocked" notice</h3>
-          <p style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
+          <h3 data-i18n="trackerTitle">Why you might see a "tracker blocked" notice</h3>
+          <p data-i18n="trackerBody" style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
             Privacy-focused browsers and extensions (DuckDuckGo, Brave, Firefox strict mode, uBlock Origin,
-            and similar tools) often flag <em>any</em> third-party analytics script by default, including
+            and similar tools) often flag any third-party analytics script by default, including
             Cloudflare's -- even when, as here, it collects no personal data. If you see that notice, nothing
             on the site breaks, and nothing about your visit is lost to us that we would otherwise have had.
             We would rather you know exactly what that notice means than wonder about it.
@@ -77,8 +83,8 @@
         </div>
 
         <div class="market-inclusion-box">
-          <h3>Product submissions and contact</h3>
-          <p style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
+          <h3 data-i18n="submissionsTitle">Product submissions and contact</h3>
+          <p data-i18n="submissionsBody" style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
             When you submit a product for the field guide or contact us, that information travels by email
             (<a href="mailto:thezeddays@gmail.com">thezeddays@gmail.com</a>) -- it is never stored on this
             website or passed to a third party for marketing. Some pages on this site, like the market
@@ -88,19 +94,98 @@
         </div>
 
         <div class="market-inclusion-box">
-          <h3>Questions</h3>
-          <p style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
+          <h3 data-i18n="questionsTitle">Questions</h3>
+          <p data-i18n="questionsBody" style="margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.55;">
             If anything here is unclear, or you would like more detail on a specific point, email
             <a href="mailto:thezeddays@gmail.com">thezeddays@gmail.com</a> and we will answer directly.
           </p>
         </div>
 
         <footer style="margin-top: 40px;">
-          <span>ZED DAYS // Counter-tariff field guide</span>
-          <a href="mailto:thezeddays@gmail.com">Contact ZED DAYS</a>
-          <a href="./index.html">Return to the counter-tariff schedule</a>
+          <span data-i18n="footerEdition">ZED DAYS // Counter-tariff field guide</span>
+          <a href="mailto:thezeddays@gmail.com" data-i18n="footerContact">Contact ZED DAYS</a>
+          <a href="./index.html" data-i18n="footerReturn">Return to the counter-tariff schedule</a>
         </footer>
       </main>
     </div>
+
+    <script>
+      const privacyText = {
+        en: {
+          title: "Privacy Statement | ZED DAYS Counter-Tariff Field Guide",
+          metaDescription: "What ZED DAYS collects, what it doesn't, and why -- including how Cloudflare Web Analytics works on this site.",
+          brandLabel: "ZED DAYS tariff guide home",
+          eyebrow: "Privacy statement",
+          pageTitle: "How ZED DAYS handles your data",
+          tagline: "Zero tracking games. Straight answers.",
+          h1: "Privacy, plainly.",
+          lede: "ZED DAYS exists to help people find and verify Canadian-made products. That only works if the site itself is honest about what it collects. Here is the complete picture, in plain language.",
+          collectTitle: "What we collect",
+          collectBody1: 'This site uses <strong>Cloudflare Web Analytics</strong> to see, in aggregate, how many people visit and which pages they look at. It reports basic counts: page views, visit counts, referring sites, approximate country, and device type (phone, tablet, desktop).',
+          collectBody2: "That is the only analytics tool on this site.",
+          notCollectTitle: "What we do not collect",
+          notCollect1: "No cookies are set by our analytics.",
+          notCollect2: "No individual visitor is identified, fingerprinted, or tracked across visits.",
+          notCollect3: "No data is tracked across other websites you visit, and nothing is sold or shared with advertisers.",
+          notCollect4: "No personal information is required to search the field guide, the tariff schedule, or the market finder -- they all work anonymously.",
+          trackerTitle: 'Why you might see a "tracker blocked" notice',
+          trackerBody: "Privacy-focused browsers and extensions (DuckDuckGo, Brave, Firefox strict mode, uBlock Origin, and similar tools) often flag any third-party analytics script by default, including Cloudflare's -- even when, as here, it collects no personal data. If you see that notice, nothing on the site breaks, and nothing about your visit is lost to us that we would otherwise have had. We would rather you know exactly what that notice means than wonder about it.",
+          submissionsTitle: "Product submissions and contact",
+          submissionsBody: 'When you submit a product for the field guide or contact us, that information travels by email (<a href="mailto:thezeddays@gmail.com">thezeddays@gmail.com</a>) -- it is never stored on this website or passed to a third party for marketing. Some pages on this site, like the market finder\'s submission form, are built to prepare an email in your own mail application rather than transmitting anything through the site itself.',
+          questionsTitle: "Questions",
+          questionsBody: 'If anything here is unclear, or you would like more detail on a specific point, email <a href="mailto:thezeddays@gmail.com">thezeddays@gmail.com</a> and we will answer directly.',
+          footerEdition: "ZED DAYS // Counter-tariff field guide",
+          footerContact: "Contact ZED DAYS",
+          footerReturn: "Return to the counter-tariff schedule",
+        },
+        fr: {
+          title: "Déclaration de confidentialité | Guide des contre-tarifs ZED DAYS",
+          metaDescription: "Ce que ZED DAYS recueille, ce qu'il ne recueille pas, et pourquoi -- y compris le fonctionnement de Cloudflare Web Analytics sur ce site.",
+          brandLabel: "Accueil du guide des tarifs ZED DAYS",
+          eyebrow: "Déclaration de confidentialité",
+          pageTitle: "Comment ZED DAYS traite vos données",
+          tagline: "Zéro pistage. Des réponses claires.",
+          h1: "La confidentialité, simplement.",
+          lede: "ZED DAYS existe pour aider les gens à trouver et à vérifier les produits fabriqués au Canada. Cela ne fonctionne que si le site est lui-même honnête sur ce qu'il recueille. Voici le portrait complet, en langage clair.",
+          collectTitle: "Ce que nous recueillons",
+          collectBody1: 'Ce site utilise <strong>Cloudflare Web Analytics</strong> pour voir, de façon agrégée, combien de personnes le visitent et quelles pages elles consultent. Il indique des chiffres de base : pages vues, nombre de visites, sites référents, pays approximatif et type d\'appareil (téléphone, tablette, ordinateur).',
+          collectBody2: "C'est le seul outil d'analyse utilisé sur ce site.",
+          notCollectTitle: "Ce que nous ne recueillons pas",
+          notCollect1: "Aucun témoin (cookie) n'est déposé par notre outil d'analyse.",
+          notCollect2: "Aucun visiteur individuel n'est identifié, profilé ou suivi d'une visite à l'autre.",
+          notCollect3: "Aucune donnée n'est suivie sur d'autres sites que vous visitez, et rien n'est vendu ni partagé avec des annonceurs.",
+          notCollect4: "Aucun renseignement personnel n'est requis pour utiliser le guide de terrain, le barème tarifaire ou le répertoire des marchés -- tout fonctionne de façon anonyme.",
+          trackerTitle: 'Pourquoi vous pourriez voir un avis de « traqueur bloqué »',
+          trackerBody: "Les navigateurs et extensions axés sur la confidentialité (DuckDuckGo, Brave, le mode strict de Firefox, uBlock Origin et autres outils semblables) signalent souvent par défaut tout script d'analyse tiers, y compris celui de Cloudflare -- même lorsque, comme ici, il ne recueille aucune donnée personnelle. Si vous voyez cet avis, rien sur le site n'est brisé, et rien concernant votre visite n'est perdu pour nous que nous aurions autrement obtenu. Nous préférons que vous sachiez exactement ce que cet avis signifie plutôt que de vous laisser dans le doute.",
+          submissionsTitle: "Soumissions de produits et contact",
+          submissionsBody: 'Lorsque vous soumettez un produit pour le guide de terrain ou que vous nous contactez, ces renseignements voyagent par courriel (<a href="mailto:thezeddays@gmail.com">thezeddays@gmail.com</a>) -- ils ne sont jamais stockés sur ce site ni transmis à un tiers à des fins de marketing. Certaines pages du site, comme le formulaire de soumission du répertoire des marchés, sont conçues pour préparer un courriel dans votre propre application de messagerie plutôt que de transmettre quoi que ce soit par le site lui-même.',
+          questionsTitle: "Questions",
+          questionsBody: 'Si quelque chose n\'est pas clair, ou si vous souhaitez plus de détails sur un point précis, écrivez à <a href="mailto:thezeddays@gmail.com">thezeddays@gmail.com</a> et nous vous répondrons directement.',
+          footerEdition: "ZED DAYS // Guide des contre-tarifs",
+          footerContact: "Contacter ZED DAYS",
+          footerReturn: "Retour au barème des contre-tarifs",
+        },
+      };
+
+      function privacySetLanguage(language) {
+        const dict = privacyText[language];
+        document.documentElement.lang = language;
+        document.documentElement.dataset.language = language;
+        document.title = dict.title;
+        document.querySelector('meta[name="description"]').setAttribute("content", dict.metaDescription);
+        document.querySelector(".brand-link").setAttribute("aria-label", dict.brandLabel);
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (dict[key] !== undefined) {
+            element.innerHTML = dict[key];
+          }
+        });
+        document.getElementById("privacyLanguageEnglish").setAttribute("aria-pressed", String(language === "en"));
+        document.getElementById("privacyLanguageFrench").setAttribute("aria-pressed", String(language === "fr"));
+      }
+
+      document.getElementById("privacyLanguageEnglish").addEventListener("click", () => privacySetLanguage("en"));
+      document.getElementById("privacyLanguageFrench").addEventListener("click", () => privacySetLanguage("fr"));
+    </script>
   </body>
 </html>
